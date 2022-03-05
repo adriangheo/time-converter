@@ -60,7 +60,7 @@
             </div>
 
         </div>
-        <div class="time-conv">
+        <div class="time-conv conv-local-zone">
             <div class="leftbox boxbox">
                 <h2>Your time</h2>
                 <p class="your-time"></p>
@@ -68,7 +68,7 @@
 
             <div class="middlebox boxbox">
                 <h2>Day1st and Day2nd</h2>
-                <p class="schedule-text"></p>
+                <p class="schedule-text day-of-week"></p>
             </div>
 
             <div class="rightbox boxbox">
@@ -76,7 +76,7 @@
                 <p class="your-hour"></p>
             </div>
         </div>
-        <div class="time-conv">
+        <div class="time-conv conv-chosen-zone">
             <div class="leftbox boxbox">
                 <h2>Chosen timezone</h2>
                 <p class="chosen-timezone"></p>
@@ -84,7 +84,7 @@
 
             <div class="middlebox boxbox">
                 <h2>Day1st and Day2nd</h2>
-                <p class="schedule-text"></p>
+                <p class="schedule-text day-of-week"></p>
             </div>
 
             <div class="rightbox boxbox">
@@ -140,6 +140,10 @@
 
 
 
+            let dt1_DayOfTheWeek = dt1Start.toFormat("ccc");
+            let dt2_DayOfTheWeek = dt1Start.toFormat("ccc");
+
+
 
 
             let dt2 = dt1Start.setZone("Europe/Bucharest");
@@ -159,8 +163,11 @@
 
 
             jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
-            jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
             jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
+            //jQuery('.conv-local-zone .day-of-week').text("" + dt1_DayOfTheWeek);
+
+
+            jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
             jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
             jQuery('.your-hour').text("" + dt2HourStart + " - " + dt2HourEnd);
             jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
