@@ -7,24 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
-    <title>Document</title>
+    <title>TimeConv</title>
 
     <style>
-        #leftbox {
+        .leftbox {
             float: left;
             background: #f0f0f0;
             width: 25%;
             height: 280px;
         }
         
-        #middlebox {
+        .middlebox {
             float: left;
             background: #c5d5c5;
             width: 50%;
             height: 280px;
         }
         
-        #rightbox {
+        .rightbox {
             float: right;
             background: #9fa9a3;
             width: 25%;
@@ -43,19 +43,19 @@
     <div class="time-conv">
         <h1>GeeksforGeeks</h1>
 
-        <div id="leftbox">
+        <div class="leftbox">
             <h2>Timezone name</h2>
-            Central European Time
+            <p class="schedule-text"></p>
         </div>
 
-        <div id="middlebox">
+        <div class="middlebox">
             <h2>Day1st and Day2nd</h2>
-            The course focuses o
+            <p class="schedule-text"></p>
         </div>
 
-        <div id="rightbox">
+        <div class="rightbox">
             <h2>Timezone time</h2>
-            9:00 pm - 10:00 pm
+            <p class="schedule-text"></p>
         </div>
     </div>
 
@@ -89,7 +89,9 @@
 
             let dtHourEnd = dt2.get('hour');
 
-            console.log("EST | " + day_1st + " & " + day_2nd + " | " + amPm(dtHourStart) + " - " + amPm(dtHourEnd));
+            jQuery('.time-conv .leftbox .schedule-text').text("EST");
+            jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
+            jQuery('.time-conv .rightbox .schedule-text').text("" + amPm(dtHourStart) + " - " + amPm(dtHourEnd));
 
         });
 
