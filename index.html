@@ -40,7 +40,7 @@
 
 <body>
 
-    <div id="boxes">
+    <div class="time-conv">
         <h1>GeeksforGeeks</h1>
 
         <div id="leftbox">
@@ -58,6 +58,97 @@
             9:00 pm - 10:00 pm
         </div>
     </div>
+
+
+    <script>
+        jQuery('.time-conv').each(function() {
+
+            var day_1st = 'Sun';
+            var day_2nd = 'Wed';
+            var myMonth = 3;
+            var myDay = 03;
+            var myHour = 10;
+            var myMinute = 10;
+            var totalMinutes = 90;
+
+
+            let dt = luxon.DateTime.fromObject({
+                month: myMonth,
+                day: myDay,
+                hour: myHour,
+                minute: 0
+            }, {
+                zone: 'America/New_York'
+            });
+
+            let dtHourStart = dt.get('hour');
+
+            let dt2 = dt.plus({
+                hours: 1
+            });
+
+            let dtHourEnd = dt2.get('hour');
+
+            console.log("EST | " + day_1st + " & " + day_2nd + " | " + amPm(dtHourStart) + " - " + amPm(dtHourEnd));
+
+        });
+
+
+        function amPm(hour) {
+            switch (hour) {
+                case 0:
+                    return "12 am";
+                case 1:
+                    return "1 am";
+                case 2:
+                    return "2 am";
+                case 3:
+                    return "3 am";
+                case 4:
+                    return "4 am";
+                case 5:
+                    return "5 am";
+                case 6:
+                    return "6 am";
+                case 7:
+                    return "7 am";
+                case 8:
+                    return "8 am";
+                case 9:
+                    return "9 am";
+                case 10:
+                    return "10 am";
+                case 11:
+                    return "11 am";
+                case 12:
+                    return "12 pm";
+                case 13:
+                    return "1 pm";
+                case 14:
+                    return "2 pm";
+                case 15:
+                    return "3 pm";
+                case 16:
+                    return "4 pm";
+                case 17:
+                    return "5 pm";
+                case 18:
+                    return "6 pm";
+                case 19:
+                    return "7 pm";
+                case 20:
+                    return "8 pm";
+                case 21:
+                    return "9 pm";
+                case 22:
+                    return "10 pm";
+                case 23:
+                    return "11 pm";
+                default:
+                    return "wronG time format";
+            }
+        }
+    </script>
 
 
 </body>
