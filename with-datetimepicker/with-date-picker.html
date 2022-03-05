@@ -21,19 +21,16 @@
         .leftbox {
             float: left;
             background: #c5d5c5;
-            width: 30%;
         }
         
         .middlebox {
             float: left;
             background: #f0f0f0;
-            width: 45%;
         }
         
         .rightbox {
             float: right;
             background: #c5d5c5;
-            width: 25%;
         }
         
         .boxbox {
@@ -47,9 +44,16 @@
             text-align: center;
         }
         
-        .parent-div {
-            margin: 70px;
-            width: 750px;
+        .time-conv {
+            display: grid;
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+        
+        .datetimepicker {
+            display: grid;
+            /* grid-template-columns: 1fr 1fr 1fr; */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
         }
     </style>
 
@@ -115,13 +119,16 @@
     <br/>
 
     <!-- Date Time picker -->
-    <div style="width: 250px; margin: 50px auto;">
-        <div id="picker"></div>
-        <input type="hidden" id="result" value="" />
-    </div>
-    <div style="width: 250px; margin: 50px auto;">
-        <div id="picker-no-time"></div>
-        <input type="hidden" id="result2" value="" />
+    <div class="datetimepicker">
+        <div style="width: 250px; margin: 50px auto;">First meeting
+            <div id="picker"></div>
+            <input type="hidden" id="result" value="" />
+        </div>
+
+        <div style="width: 250px; margin: 50px auto;">Second meeting
+            <div id="picker-no-time"></div>
+            <input type="hidden" id="result2" value="" />
+        </div>
     </div>
 
 
