@@ -62,6 +62,7 @@
             <div class="rightbox boxbox">
                 <h2>Timezone time</h2>
                 <p class="schedule-text"></p>
+                <p class="your-hour"></p>
             </div>
         </div>
         <div class="time-conv">
@@ -78,6 +79,7 @@
             <div class="rightbox boxbox">
                 <h2>Timezone time</h2>
                 <p class="schedule-text"></p>
+                <p class="chosen-hour"></p>
             </div>
         </div>
     </div>
@@ -130,6 +132,8 @@
             jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
             jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
             jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
+            jQuery('.your-hour').text("" + dtHourStart + " - " + dtHourEnd);
+            jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
 
         });
     </script>
