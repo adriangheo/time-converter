@@ -95,7 +95,7 @@
             var totalMinutes = 90;
 
 
-            let dt = luxon.DateTime.fromObject({
+            let dt1 = luxon.DateTime.fromObject({
                 month: myMonth,
                 day: myDay,
                 hour: myHour,
@@ -105,18 +105,18 @@
             });
 
             // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-            let dtHourStart = dt.toLocaleString({
+            let dtHourStart = dt1.toLocaleString({
                 hour: 'numeric',
                 minute: '2-digit'
             });
 
             // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
-            let dtLocalZone = dt.toFormat("ZZZZZ");
+            let dtLocalZone = dt1.toFormat("ZZZZZ");
 
             // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
-            let dtTimeZone = dt.zoneName;
+            let dtTimeZone = dt1.zoneName;
 
-            let dt2 = dt.plus({
+            let dt2 = dt1.plus({
                 hours: 1
             });
 
