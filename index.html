@@ -139,11 +139,30 @@
             });
 
 
+
+
+
+            let dt2 = dt1Start.setZone("Europe/Bucharest");
+            let dt2HourStart = dt2.toLocaleString({
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+
+            let dt2HourEnd = dt2.plus({
+                hours: 1
+            }).toLocaleString({
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+
+
+
+
             jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
             jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
             jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
             jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
-            jQuery('.your-hour').text("" + dtHourStart + " - " + dtHourEnd);
+            jQuery('.your-hour').text("" + dt2HourStart + " - " + dt2HourEnd);
             jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
 
         });
