@@ -10,6 +10,10 @@
     <title>TimeConv</title>
 
     <style>
+        .headerbox {
+            background: #f0f0f0;
+        }
+        
         .leftbox {
             float: left;
             background: #c5d5c5;
@@ -29,7 +33,7 @@
         }
         
         .boxbox {
-            height: 160px;
+            height: auto;
             border-top: 3px solid #9fa9a3;
             border-bottom: 3px solid #9fa9a3;
         }
@@ -49,6 +53,13 @@
 
     <div class="parent-div">
         <div class="time-conv">
+
+            <div class="headerbox boxbox">
+                <h2>Group A starting date: <span class="start-date">March 10th</span></h2>
+            </div>
+
+        </div>
+        <div class="time-conv">
             <div class="leftbox boxbox">
                 <h2>Your time</h2>
                 <p class="your-time"></p>
@@ -61,7 +72,6 @@
 
             <div class="rightbox boxbox">
                 <h2>Timezone time</h2>
-                <p class="schedule-text"></p>
                 <p class="your-hour"></p>
             </div>
         </div>
@@ -78,7 +88,6 @@
 
             <div class="rightbox boxbox">
                 <h2>Timezone time</h2>
-                <p class="schedule-text"></p>
                 <p class="chosen-hour"></p>
             </div>
         </div>
