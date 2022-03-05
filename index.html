@@ -44,8 +44,11 @@
         <h1>GeeksforGeeks</h1>
 
         <div class="leftbox">
-            <h2>Timezone name</h2>
-            <p class="schedule-text"></p>
+            <h2>Your time</h2>
+            <p class="your-time"></p>
+            <br/>
+            <h2>Chosen timezone</h2>
+            <p class="chosen-timezone"></p>
         </div>
 
         <div class="middlebox">
@@ -81,7 +84,17 @@
                 zone: 'America/New_York'
             });
 
-            let dtHourStart = dt.get('hour');
+            // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
+            let dtHourStart = dt.toLocaleString({
+                hour: 'numeric',
+                minute: '2-digit'
+            });
+
+            // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
+            let dtLocalZone = dt.toFormat("ZZZZZ");
+
+            // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
+            let dtTimeZone = dt.zoneName;
 
             let dt2 = dt.plus({
                 hours: 1
@@ -89,67 +102,12 @@
 
             let dtHourEnd = dt2.get('hour');
 
-            jQuery('.time-conv .leftbox .schedule-text').text("EST");
+            jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
+            jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
             jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
-            jQuery('.time-conv .rightbox .schedule-text').text("" + amPm(dtHourStart) + " - " + amPm(dtHourEnd));
+            jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + amPm(dtHourEnd));
 
         });
-
-
-        function amPm(hour) {
-            switch (hour) {
-                case 0:
-                    return "12 am";
-                case 1:
-                    return "1 am";
-                case 2:
-                    return "2 am";
-                case 3:
-                    return "3 am";
-                case 4:
-                    return "4 am";
-                case 5:
-                    return "5 am";
-                case 6:
-                    return "6 am";
-                case 7:
-                    return "7 am";
-                case 8:
-                    return "8 am";
-                case 9:
-                    return "9 am";
-                case 10:
-                    return "10 am";
-                case 11:
-                    return "11 am";
-                case 12:
-                    return "12 pm";
-                case 13:
-                    return "1 pm";
-                case 14:
-                    return "2 pm";
-                case 15:
-                    return "3 pm";
-                case 16:
-                    return "4 pm";
-                case 17:
-                    return "5 pm";
-                case 18:
-                    return "6 pm";
-                case 19:
-                    return "7 pm";
-                case 20:
-                    return "8 pm";
-                case 21:
-                    return "9 pm";
-                case 22:
-                    return "10 pm";
-                case 23:
-                    return "11 pm";
-                default:
-                    return "wrong time format";
-            }
-        }
     </script>
 
 
