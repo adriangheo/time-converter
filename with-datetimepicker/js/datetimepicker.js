@@ -1,19 +1,19 @@
-﻿(function () {
+﻿(function() {
     'use strict';
-    jQuery.fn.dateTimePicker = function (options) {
+    jQuery.fn.dateTimePicker = function(options) {
 
         var settings = jQuery.extend({
             selectData: "now",
             dateFormat: "YYYY-MM-DD HH:mm",
             showTime: true,
             locale: 'en',
-            positionShift: { top: 20, left: 0},
+            positionShift: { top: 20, left: 0 },
             title: "Select Date and Time",
             buttonTitle: "Select"
         }, options);
         moment.locale(settings.locale);
         var elem = this;
-        var limitation = {"hour": 23, "minute": 59};
+        var limitation = { "hour": 23, "minute": 59 };
         var mousedown = false;
         var timeout = 800;
         var selectDate = settings.selectData == "now" ? moment() : moment(settings.selectData, settings.dateFormat);
@@ -22,7 +22,7 @@
         }
         var startDate = copyDate(moment());
         var lastSelected = copyDate(selectDate);
-        return this.each(function () {
+        return this.each(function() {
             if (lastSelected != selectDate) {
                 selectDate = copyDate(lastSelected);
             }
@@ -52,7 +52,7 @@
                     elem.append(sVar);
                 }
             }
-            elem.on('click', function () {
+            elem.on('click', function() {
                 var winVar = jQuery('<div>');
                 winVar.addClass("dtp_modal-win");
                 var bodyVar = jQuery('body');
@@ -60,9 +60,9 @@
                 var contentVar = createContent();
                 bodyVar.append(contentVar);
                 var offset = elem.offset();
-                contentVar.css({top: (offset.top + settings.positionShift.top) + "px", left: (offset.left + settings.positionShift.left) + "px"});
+                contentVar.css({ top: (offset.top + settings.positionShift.top) + "px", left: (offset.left + settings.positionShift.left) + "px" });
                 feelDates(selectDate);
-                winVar.on('click', function () {
+                winVar.on('click', function() {
                     contentVar.remove();
                     winVar.remove();
                 })
@@ -108,11 +108,9 @@
                                 bVar.text(day);
                                 if (flagStart && day < dayNow) {
                                     bVar.addClass('dtp_modal-grey');
-                                }
-                                else if (flagSelect && day == cerDay) {
+                                } else if (flagSelect && day == cerDay) {
                                     bVar.addClass('dtp_modal-cell-selected');
-                                }
-                                else {
+                                } else {
                                     bVar.addClass('cursorily');
                                     bVar.bind('click', changeDate);
                                 }
@@ -186,11 +184,11 @@
                 function attachChangeTime() {
                     var anglesVar = jQuery(contentVar).find('i[id^="angle-"]');
                     // anglesVar.bind('click', changeTime);
-                    anglesVar.bind('mouseup', function () {
+                    anglesVar.bind('mouseup', function() {
                         mousedown = false;
                         timeout = 800;
                     });
-                    anglesVar.bind('mousedown', function () {
+                    anglesVar.bind('mousedown', function() {
                         mousedown = true;
                         changeTime(this);
                     });
@@ -206,7 +204,7 @@
                         increment = -1;
                     }
                     appendIncrement(arr[2], increment);
-                    setTimeout(function () {
+                    setTimeout(function() {
                         autoIncrement(elVar);
                     }, timeout);
                 }
@@ -226,8 +224,7 @@
                     var val = parseInt(iVar.text()) + increment;
                     if (val < 0) {
                         val = limitation[typeDigits];
-                    }
-                    else if (val > limitation[typeDigits]) {
+                    } else if (val > limitation[typeDigits]) {
                         val = 0;
                     }
                     iVar.text(formatDigits(val));
@@ -298,8 +295,7 @@
                     var cVar = jQuery('<div>');
                     if (settings.showTime) {
                         cVar.addClass("dtp_modal-content");
-                    }
-                    else {
+                    } else {
                         cVar.addClass("dtp_modal-content-no-time");
                     }
                     var elVar = jQuery('<div>');
@@ -333,6 +329,7 @@
                     }
                     return cVar;
                 }
+
                 function updateDate() {
                     if (settings.showTime) {
                         jQuery('#time-line').text(lastSelected.format(settings.dateFormat));
@@ -384,5 +381,5 @@
         return r;
     }
 
-}(jQuery));
+}());
 // fa-caret-down
