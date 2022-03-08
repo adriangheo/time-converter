@@ -163,7 +163,7 @@
 
         //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy hh:mm" (eg. if day is smaller than 10 add 0 in front) 
         // var date_and_time_of_first_course = jQuery(this).find('.date-and-time-of-first-course').text();
-        var date_and_time_of_first_course = "20-Jun-2022 22:00";
+        var date_and_time_of_first_course = "20-Jun-2022 15:45";
 
 
 
@@ -255,9 +255,15 @@
             minute: '2-digit'
         });
 
+
+
         let dt2HourEndUsrTz = dt1UsrTz.plus({
             minutes: total_course_minutes
-        }).toLocaleString({
+        });
+
+
+
+        let dt2HourEndUsrTzString = dt2HourEndUsrTz.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
@@ -276,13 +282,20 @@
 
 
         // ↓↓↓ get month and day for title (User TimeZone)
-        let dt1UsrMonthAndDay = "" + dt1UsrTz.toFormat("LLL dd") + getNumberSuffix(dt1UsrTz.toFormat("dd"));
+        let dt1UsrMonthAndDay = "" + dt1UsrTz.toFormat("LLL dd") + getNumberSuffix(dt1UsrTz.toFormat("ddt2HourEndUsrTzStringd"));
         // ↑↑↑ get month and day for title (User TimeZone)
 
 
         // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
-        let dt1UsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy");
+        let dt1StartUsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log(dt1StartUsrFullDate);
         // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
+
+
+        // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
+        let dt1EndUsrFullDate = "" + dt2HourEndUsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log(dt1EndUsrFullDate);
+        // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
         // jQuery(this).find('.usr-strt-date').text(dt1UsrMonthAndDay);
@@ -297,7 +310,7 @@
         // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         // jQuery(this).find('.user-cls-time').text(dtLocalUsrTz);
         // jQuery(this).find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
-        // jQuery(this).find('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
+        // jQuery(this).find('.user-cls-hour .end-hr').text(dt2HourEndUsrTzString);
 
 
 
@@ -313,7 +326,7 @@
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         jQuery('.user-cls-time').text(dtLocalUsrTz);
         jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
-        jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
+        jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTzString);
 
 
 
