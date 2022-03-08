@@ -226,20 +226,14 @@
 
         // ↓↓↓ variables partaining to America/New_York dates and times
         // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-        let dtHourStartNY = dt1StartNY.toLocaleString({
-            hour: 'numeric',
-            minute: '2-digit'
-        });
+        let dtHourStartNY = dt1StartNY.toFormat('HH:mm');
 
         // let dtHourEndNY = dt1EndNY.get('hour');
         let dtHourEndNYobj = dt1StartNY.plus({
             minutes: total_course_minutes
         })
 
-        let dtHourEndNY_string = dtHourEndNYobj.toLocaleString({
-            hour: 'numeric',
-            minute: '2-digit'
-        });
+        let dtHourEndNY_string = dtHourEndNYobj.toFormat('HH:mm');
 
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -266,19 +260,13 @@
         let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
         let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        let dt1HourStartUsrTz = dt1UsrTz.toLocaleString({
-            hour: 'numeric',
-            minute: '2-digit'
-        });
+        let dt1HourStartUsrTz = dt1UsrTz.toFormat('HH:mm');
 
         let dt2HourEndUsrTz = dt1UsrTz.plus({
             minutes: total_course_minutes
         });
 
-        let dt2HourEndUsrTzString = dt2HourEndUsrTz.toLocaleString({
-            hour: 'numeric',
-            minute: '2-digit'
-        });
+        let dt2HourEndUsrTzString = dt2HourEndUsrTz.toFormat('HH:mm');
         // ↑↑↑ variables partaining to UserTimeZone dates and times
 
 
