@@ -102,97 +102,101 @@
 
 
     <script>
-        jQuery('.timeconvertorparent').each(function() {
+        // jQuery('.timeconvertorparent').each(function() {
 
 
-            var arbitraryMonth = "Jun";
+        var date_and_time_of_first_course = "20-Jun-2022 08:00";
+        var date_of_second_course = "22-Jun-2022";
+        var total_total_minutes = 90;
 
-            function getMonthFromString(mon) {
-                return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1
-            }
+        var arbitraryMonth = "Jun";
 
-            console.log(getMonthFromString(arbitraryMonth));
+        function getMonthFromString(mon) {
+            return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
+        }
 
-
-
-            var day_1st = 'Sun';
-            var day_2nd = 'Wed';
-            var myMonth = 3;
-            var myDay = 03;
-            var myHour = 10;
-            var myMinute = 10;
-            var totalMinutes = 90;
-
-
-            let dt1Start = luxon.DateTime.fromObject({
-                month: myMonth,
-                day: myDay,
-                hour: myHour,
-                minute: 0
-            }, {
-                zone: 'America/New_York'
-            });
-
-            // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-            let dtHourStart = dt1Start.toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-
-            // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
-            let dtLocalZone = dt1Start.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
-
-            // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
-            let dtTimeZone = dt1Start.zoneName;
-
-            let dt1End = dt1Start.plus({
-                hours: 1
-            });
-
-            // let dtHourEnd = dt1End.get('hour');
-            let dtHourEnd = dt1End.toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-
-
-            //
-            let userDateTimeObj = luxon.DateTime.local();
-            let userTimeZoneLong = userDateTimeObj.zoneName;
-            let userTimeZoneAbrev = userDateTimeObj.toFormat('ZZZZZ');
-
-            let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
-            let dt2HourStart = dt2.toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-
-            let dt2HourEnd = dt2.plus({
-                hours: 1
-            }).toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
+        console.log(getMonthFromString(arbitraryMonth));
 
 
 
-
-            jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
-
-            jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
-            jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
-
-
-            jQuery('.user-cls-time').text(userTimeZoneAbrev);
+        var day_1st = 'Sun';
+        var day_2nd = 'Wed';
+        var myMonth = getMonthFromString(date_and_time_of_first_course.substring(3, 6));
+        var cDay1st = date_and_time_of_first_course.substring(0, 2);
+        var cHour = date_and_time_of_first_course.substring(12, 14);
+        var cMinute = date_and_time_of_first_course.substring(15, 17)
 
 
-            jQuery('.user-cls-hour .start-hr').text(dt2HourStart);
-            jQuery('.user-cls-hour .end-hr').text(dt2HourEnd);
 
-            jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
-
-
+        let dt1Start = luxon.DateTime.fromObject({
+            month: myMonth,
+            day: cDay1st,
+            hour: cHour,
+            minute: 0
+        }, {
+            zone: 'America/New_York'
         });
+
+        // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
+        let dtHourStart = dt1Start.toLocaleString({
+            hour: 'numeric',
+            minute: '2-digit'
+        });
+
+        // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
+        let dtLocalZone = dt1Start.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
+
+        // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
+        let dtTimeZone = dt1Start.zoneName;
+
+        let dt1End = dt1Start.plus({
+            hours: 1
+        });
+
+        // let dtHourEnd = dt1End.get('hour');
+        let dtHourEnd = dt1End.toLocaleString({
+            hour: 'numeric',
+            minute: '2-digit'
+        });
+
+
+        //
+        let userDateTimeObj = luxon.DateTime.local();
+        let userTimeZoneLong = userDateTimeObj.zoneName;
+        let userTimeZoneAbrev = userDateTimeObj.toFormat('ZZZZZ');
+
+        let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
+        let dt2HourStart = dt2.toLocaleString({
+            hour: 'numeric',
+            minute: '2-digit'
+        });
+
+        let dt2HourEnd = dt2.plus({
+            hours: 1
+        }).toLocaleString({
+            hour: 'numeric',
+            minute: '2-digit'
+        });
+
+
+
+
+        jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
+
+        jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
+        jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
+
+
+        jQuery('.user-cls-time').text(userTimeZoneAbrev);
+
+
+        jQuery('.user-cls-hour .start-hr').text(dt2HourStart);
+        jQuery('.user-cls-hour .end-hr').text(dt2HourEnd);
+
+        jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
+
+
+        // });
     </script>
 
 
