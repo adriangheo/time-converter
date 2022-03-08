@@ -65,7 +65,7 @@
             </div>
 
         </div>
-        <div class="conv-local-zone timeconvertorchild split-3-columns">
+        <div class="conv-local-zone timeconvertorchild split-3-columns user-tz">
             <div class="leftbox boxbox">
                 <p><span class="tz-bold minwidth">Your time </span> </p>
                 <p class="user-cls-time tz-details">Eastern Standard Time</p>
@@ -82,7 +82,7 @@
             </div>
         </div>
 
-        <div class="conv-chosen-zone timeconvertorchild split-3-columns">
+        <div class="conv-chosen-zone timeconvertorchild split-3-columns new-york-tz">
             <div class="leftbox boxbox">
                 <p><span class="minwidth"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span>
                 </p>
@@ -107,7 +107,7 @@
         // jQuery('.timeconvertorparent').each(function() {
 
 
-        var date_and_time_of_first_course = "20-Jun-2022 08:00";
+        var date_and_time_of_first_course = "20-Jun-2022 23:00";
         var date_of_second_course = "22-Jun-2022";
         var total_total_minutes = 90;
 
@@ -189,17 +189,30 @@
 
 
 
+        // ↓↓↓ get days of the week for 1st and 2nd day of course (User TimeZone)
+        let dt1StartUsrTzWeekday = dt1UsrTz.weekdayShort;
+
+        let dt2StartUsrTzWeekday = dt1UsrTz.set({
+            day: date_of_second_course.substring(0, 2),
+            month: getMonthFromString(date_of_second_course.substring(3, 6))
+        }).weekdayShort;
+        // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
+
+
+
+
 
 
 
 
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
-        jQuery('.timeconvertorparent .middlebox .schedule-text').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
+        jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
         jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
         jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
 
+        jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         jQuery('.user-cls-time').text(dtLocalUsrTz);
         jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
         jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
