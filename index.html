@@ -61,7 +61,7 @@
         <div class="timeconvertorchild">
 
             <div class="headerbox boxbox">
-                <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="start-date">March 10th</span></p>
+                <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="usr-strt-date">March 10th</span></p>
             </div>
 
         </div>
@@ -213,11 +213,14 @@
         // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
 
 
+        // ↓↓↓ get month and day for title (User TimeZone)
+        let dt1UsrMonthAndDay = "" + dt1UsrTz.toFormat("LLL dd") + getNumberSuffix(dt1UsrTz.toFormat("dd"));
 
 
+        // ↑↑↑ get month and day for title (User TimeZone)
 
 
-
+        jQuery('.usr-strt-date').text(dt1UsrMonthAndDay);
 
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
@@ -231,6 +234,30 @@
         jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
         jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
 
+
+
+
+        function getNumberSuffix(num) {
+            const th = 'th'
+            const rd = 'rd'
+            const nd = 'nd'
+            const st = 'st'
+
+            if (num === 11 || num === 12 || num === 13) return th
+
+            let lastDigit = num.toString().slice(-1)
+
+            switch (lastDigit) {
+                case '1':
+                    return st
+                case '2':
+                    return nd
+                case '3':
+                    return rd
+                default:
+                    return th
+            }
+        }
 
 
         // });
