@@ -279,8 +279,6 @@
         //-----------------------------------------------------------------------------------------------------------------------------------
 
 
-
-
         //-----------------------------------------------------------------------------------------------------------------------------------
         // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
         let dt1HourEndUsrTz = dt1UsrTz.plus({
@@ -290,17 +288,11 @@
         //-----------------------------------------------------------------------------------------------------------------------------------
 
 
-
         let dt1HourStartUsrTz = dt1UsrTz.toFormat('HH:mm');
 
-
-
-
-
+        // ↓↓↓ variables partaining to UserTimeZone dates and times
         let dt1HourEndUsrTzString = dt1HourEndUsrTz.toFormat('HH:mm');
         // ↑↑↑ variables partaining to UserTimeZone dates and times
-
-
 
 
         // ↓↓↓ get days of the week for 1st and 2nd day of course (User TimeZone)
@@ -308,11 +300,13 @@
         // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
 
 
+        //-----------------------------------------------------------------------------------------------------------------------------------
         // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
         let dt2StartUsrTzWeekday = dt1UsrTz.plus({
             days: diffInDays
         }).weekdayShort;
         // ↑↑↑  LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
 
