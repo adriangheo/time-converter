@@ -136,12 +136,14 @@
         // ↑↑↑ initial LuxonJs Object
 
 
-        // ↓↓↓ variables partaining to the day of the second course (in New York time)  
-        let dt2StartNY = dt1StartNY.set({
+        // ↓↓↓ get days of the week for 1st and 2nd day of course 
+        let dt1StartNYweekday = dt1StartNY.weekdayShort;
+
+        let dt2StartNYweekday = dt1StartNY.set({
             day: date_of_second_course.substring(0, 2),
             month: getMonthFromString(date_of_second_course.substring(3, 6))
-        });
-        // ↑↑↑ initial LuxonJs Object
+        }).weekdayShort;
+        // ↑↑↑  get days of the week for 1st and 2nd day of course 
 
 
 
@@ -163,8 +165,6 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
         let dtLocalZoneNY = dt1StartNY.toFormat("ZZZZZ");
-
-        let dt1StartNYweekday = dt1StartNY.weekdayShort;
         // ↑↑↑ variables partaining to America/New_York dates and times
 
 
@@ -194,7 +194,7 @@
 
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
-        jQuery('.timeconvertorparent .middlebox .schedule-text').text("" + dt1StartNYweekday + " & " + day_2nd);
+        jQuery('.timeconvertorparent .middlebox .schedule-text').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
         jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
         jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
