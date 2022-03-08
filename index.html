@@ -186,7 +186,12 @@
         var cMinute = date_and_time_of_first_course.substring(15, 17)
 
 
+        // ↓↓↓  Bellow are 3 very important Luxon objects, partaining to NewYork time ↓↓↓ 
         //-----------------------------------------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+        // 1. -----------------------------------------------------------------------------------------------------------------------------------
         // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
         let dt1StartNY = luxon.DateTime.fromObject({
             month: myMonth,
@@ -200,8 +205,7 @@
         //-----------------------------------------------------------------------------------------------------------------------------------
 
 
-
-        //-----------------------------------------------------------------------------------------------------------------------------------
+        // 2. -----------------------------------------------------------------------------------------------------------------------------------
         // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
         let dt1HourEndNYobj = dt1StartNY.plus({
             minutes: total_course_minutes
@@ -211,17 +215,51 @@
 
 
 
-        //-----------------------------------------------------------------------------------------------------------------------------------
+        // 3.-----------------------------------------------------------------------------------------------------------------------------------
         // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
         let dt2StartNY = dt1StartNY.set({
             day: date_of_second_course.substring(0, 2),
             month: getMonthFromString(date_of_second_course.substring(3, 6))
         });
         // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
+        // ↓↓↓  Bellow are 3 very important Luxon objects, partaining to User time ↓↓↓ 
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
+        // 1.-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+        let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+        // 2.-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+        let dt1HourEndUsrTz = dt1UsrTz.plus({
+            minutes: total_course_minutes
+        });
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+        // 3. -----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
+        // ↓↓↓ get date difernce in days between 1st and 2nd day of course
+        let diff = dt2StartNY.diff(dt1StartNY, ["days"]);
+        let diffInDays = diff.days;
+        // ↑↑↑get date difernce in days between 1st and 2nd day of course
+
+
+        let dt2StartUsrTz = dt1UsrTz.plus({
+            days: diffInDays
+        });
+        // ↑↑↑  LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
         //-----------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -234,10 +272,6 @@
 
 
 
-        // ↓↓↓ get date difernce in days between 1st and 2nd day of course
-        let diff = dt2StartNY.diff(dt1StartNY, ["days"]);
-        let diffInDays = diff.days;
-        // ↑↑↑get date difernce in days between 1st and 2nd day of course
 
 
 
@@ -272,20 +306,8 @@
 
 
 
-        //-----------------------------------------------------------------------------------------------------------------------------------
-        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
-        let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
-        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
-        //-----------------------------------------------------------------------------------------------------------------------------------
-        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
-        let dt1HourEndUsrTz = dt1UsrTz.plus({
-            minutes: total_course_minutes
-        });
-        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
-        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
         let dt1HourStartUsrTz = dt1UsrTz.toFormat('HH:mm');
@@ -300,15 +322,9 @@
         // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
 
 
-        //-----------------------------------------------------------------------------------------------------------------------------------
-        // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
-        let dt2StartUsrTzWeekday = dt1UsrTz.plus({
-            days: diffInDays
-        }).weekdayShort;
-        // ↑↑↑  LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
-        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
+        let dt2StartUsrTzWeekday = dt2StartUsrTz.weekdayShort;
 
 
         // ↓↓↓ get month and day for title (User TimeZone)
