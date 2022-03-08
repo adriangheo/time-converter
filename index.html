@@ -144,12 +144,12 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         //let dtTimeZoneNY = dt1StartNY.zoneName;
 
-        let dt1End = dt1StartNY.plus({
+        let dt1EndNY = dt1StartNY.plus({
             minutes: total_total_minutes
         });
 
-        // let dtHourEnd = dt1End.get('hour');
-        let dtHourEnd = dt1End.toLocaleString({
+        // let dtHourEndNY = dt1EndNY.get('hour');
+        let dtHourEndNY = dt1EndNY.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
@@ -160,13 +160,13 @@
         let userTimeZoneLong = userDateTimeObj.zoneName;
         let userTimeZoneAbrev = userDateTimeObj.toFormat('ZZZZZ');
 
-        let dt2 = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        let dt2HourStart = dt2.toLocaleString({
+        let dt2UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
+        let dt2HourStart = dt2UsrTz.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
 
-        let dt2HourEnd = dt2.plus({
+        let dt2HourEnd = dt2UsrTz.plus({
             minutes: total_total_minutes
         }).toLocaleString({
             hour: 'numeric',
@@ -179,11 +179,11 @@
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
-        jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEnd);
+        jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
 
 
-        jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEnd);
+        jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
 
         jQuery('.user-cls-time').text(userTimeZoneAbrev);
