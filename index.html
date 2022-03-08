@@ -144,9 +144,8 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         //let dtTimeZoneNY = dt1StartNY.zoneName;
 
-
         // let dtHourEndNY = dt1EndNY.get('hour');
-        let dtHourEndNY = dt1EndNY.plus({
+        let dtHourEndNY = dt1StartNY.plus({
             minutes: total_total_minutes
         }).toLocaleString({
             hour: 'numeric',
