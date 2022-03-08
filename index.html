@@ -58,6 +58,9 @@
 
 
     <div class="timeconvertorparent">
+        <div class="date-and-time-of-first-course">21-Jun-2022 22:00</div>
+        <div class="date-of-second-course">22-Jun-2022</div>
+        <div class="total-course-minutes">95</div>
         <div class="timeconvertorchild">
 
             <div class="headerbox boxbox">
@@ -106,6 +109,10 @@
     <hr>
 
     <div class="timeconvertorparent">
+        <div class="date-and-time-of-first-course">20-Jun-2022 23:00</div>
+        <div class="date-of-second-course">22-Jun-2022</div>
+        <div class="total-course-minutes">90</div>
+
         <div class="timeconvertorchild">
 
             <div class="headerbox boxbox">
@@ -159,7 +166,7 @@
 
         //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy" 
         var date_of_second_course = "22-Jun-2022";
-        var total_total_minutes = 90;
+        var total_course_minutes = 90;
 
         function getMonthFromString(mon) {
             return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
@@ -221,7 +228,7 @@
 
         // let dtHourEndNY = dt1EndNY.get('hour');
         let dtHourEndNY = dt1StartNY.plus({
-            minutes: total_total_minutes
+            minutes: total_course_minutes
         }).toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
@@ -244,7 +251,7 @@
         });
 
         let dt2HourEndUsrTz = dt1UsrTz.plus({
-            minutes: total_total_minutes
+            minutes: total_course_minutes
         }).toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
