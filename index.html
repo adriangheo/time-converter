@@ -123,7 +123,7 @@
 
 
 
-        let dt1Start = luxon.DateTime.fromObject({
+        let dt1StartNY = luxon.DateTime.fromObject({
             month: myMonth,
             day: cDay1st,
             hour: cHour,
@@ -133,18 +133,18 @@
         });
 
         // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-        let dtHourStart = dt1Start.toLocaleString({
+        let dtHourStartNY = dt1StartNY.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
 
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
-        let dtLocalZone = dt1Start.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
+        let dtLocalZoneNY = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
-        let dtTimeZone = dt1Start.zoneName;
+        //let dtTimeZoneNY = dt1StartNY.zoneName;
 
-        let dt1End = dt1Start.plus({
+        let dt1End = dt1StartNY.plus({
             minutes: total_total_minutes
         });
 
@@ -160,7 +160,7 @@
         let userTimeZoneLong = userDateTimeObj.zoneName;
         let userTimeZoneAbrev = userDateTimeObj.toFormat('ZZZZZ');
 
-        let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
+        let dt2 = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
         let dt2HourStart = dt2.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
@@ -176,14 +176,14 @@
 
 
 
-        jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
+        jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
-        jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
+        jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEnd);
 
 
 
-        jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
+        jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEnd);
 
 
         jQuery('.user-cls-time').text(userTimeZoneAbrev);
