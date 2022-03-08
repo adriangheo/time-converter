@@ -90,7 +90,9 @@
             </div>
 
             <div class="middlebox boxbox">
-                <p class="schedule-text day-of-week">Sun &amp; Wed</p>
+                <p class="schedule-text day-of-week"></p>
+                <!-- <p class="schedule-text day-of-week">Sun &amp; Wed</p> -->
+
             </div>
 
             <div class="rightbox boxbox">
@@ -152,6 +154,8 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
         let dtLocalZoneNY = dt1StartNY.toFormat("ZZZZZ");
+
+        let dt1StartNYweekday = dt1StartNY.weekdayShort;
         // ↑↑↑ variables partaining to America/New_York dates and times
 
 
@@ -178,8 +182,8 @@
 
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
-        jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
-        jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
+        jQuery('.timeconvertorparent .middlebox .schedule-text').text("" + dt1StartNYweekday + " & " + day_2nd);
+        jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
         jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
 
