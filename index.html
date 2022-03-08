@@ -173,7 +173,7 @@
         let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
         let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        let dt2HourStartUsrTz = dt1UsrTz.toLocaleString({
+        let dt1HourStartUsrTz = dt1UsrTz.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
@@ -201,7 +201,7 @@
 
 
         jQuery('.user-cls-time').text(dtLocalUsrTz);
-        jQuery('.user-cls-hour .start-hr').text(dt2HourStartUsrTz);
+        jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
         jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
 
 
