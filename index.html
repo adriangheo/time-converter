@@ -9,200 +9,160 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
     <title>TimeConv</title>
 
-    <style>
-        .headerbox {
-            background: #f0f0f0;
-        }
-        
-        .leftbox {
-            float: left;
-            background: #c5d5c5;
-            width: 30%;
-        }
-        
-        .middlebox {
-            float: left;
-            background: #f0f0f0;
-            width: 45%;
-        }
-        
-        .rightbox {
-            float: right;
-            background: #c5d5c5;
-            width: 25%;
-        }
-        
-        .boxbox {
-            height: auto;
-            border-top: 3px solid #9fa9a3;
-            border-bottom: 3px solid #9fa9a3;
-        }
-        
-        h1 {
-            color: #e3e0cc;
-            text-align: center;
-        }
-        
-        .parent-div {
-            margin: 70px;
-            width: 750px;
-        }
-    </style>
-</head>
 
-<body>
+    <body>
 
-    <div class="parent-div">
-        <div class="time-conv">
+        <div class="parent-div">
+            <div class="time-conv">
 
-            <div class="headerbox boxbox">
-                <p>Group A starting date: <span class="start-date">March 10th</span></p>
+                <div class="headerbox boxbox">
+                    <p>Group A starting date: <span class="start-date">March 10th</span></p>
+                </div>
+
             </div>
+            <div class="time-conv">
+                <div class="leftbox boxbox">
+                    <p>Your time</p>
+                    <p class="your-time"></p>
+                </div>
 
-        </div>
-        <div class="time-conv">
-            <div class="leftbox boxbox">
-                <p>Your time</p>
-                <p class="your-time"></p>
+                <div class="middlebox boxbox">
+                    <p>Day1st and Day2nd</p>
+                    <p class="schedule-text"></p>
+                </div>
+
+                <div class="rightbox boxbox">
+                    <p>Timezone time</p>
+                    <p class="your-hour"></p>
+                </div>
             </div>
+            <div class="time-conv">
+                <div class="leftbox boxbox">
+                    <p>Chosen timezone</p>
+                    <p class="chosen-timezone"></p>
+                </div>
 
-            <div class="middlebox boxbox">
-                <p>Day1st and Day2nd</p>
-                <p class="schedule-text"></p>
-            </div>
+                <div class="middlebox boxbox">
+                    <p>Day1st and Day2nd</p>
+                    <p class="schedule-text"></p>
+                </div>
 
-            <div class="rightbox boxbox">
-                <p>Timezone time</p>
-                <p class="your-hour"></p>
+                <div class="rightbox boxbox">
+                    <p>Timezone time</p>
+                    <p class="chosen-hour"></p>
+                </div>
             </div>
         </div>
-        <div class="time-conv">
-            <div class="leftbox boxbox">
-                <p>Chosen timezone</p>
-                <p class="chosen-timezone"></p>
+
+        <br/><br/><br/><br/><br/><br/><br/>
+
+
+
+        <div class="timeconvertorparent">
+            <div class="timeconvertorchild">
+
+                <div class="headerbox boxbox">
+                    <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="start-date">March 10th</span></p>
+                </div>
+
             </div>
+            <div class="conv-local-zone timeconvertorchild split-3-columns">
+                <div class="leftbox boxbox">
+                    <p><span class="tz-bold minwidth">Your time </span><span class="schedule-text day-of-week nowrp">Sun & Wed</span> </p>
+                    <p class="user-cls-time tz-details">Eastern Standard Time</p>
+                </div>
 
-            <div class="middlebox boxbox">
-                <p>Day1st and Day2nd</p>
-                <p class="schedule-text"></p>
+                <div class="rightbox boxbox boxbox ">
+                    <p class="user-cls-hour tz-bold"> <span class='nowrp'>5:00 PM</span> - <span class='nowrp'>6:00 PM</span></p>
+                    <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                </div>
             </div>
+            <div class="conv-chosen-zone timeconvertorchild split-3-columns">
+                <div class="leftbox boxbox">
+                    <p><span class="minwidth"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span><span class="schedule-text day-of-week nowrp">Sun & Wed</span> </p>
+                    <p class="chosen-timezone tz-details">America/New_York</p>
+                </div>
 
-            <div class="rightbox boxbox">
-                <p>Timezone time</p>
-                <p class="chosen-hour"></p>
-            </div>
-        </div>
-    </div>
-
-    <br/><br/><br/><br/><br/><br/><br/>
-
-
-
-    <div class="timeconvertorparent">
-        <div class="timeconvertorchild">
-
-            <div class="headerbox boxbox">
-                <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="start-date">March 10th</span></p>
-            </div>
-
-        </div>
-        <div class="conv-local-zone timeconvertorchild split-3-columns">
-            <div class="leftbox boxbox">
-                <p><span class="tz-bold minwidth">Your time </span><span class="schedule-text day-of-week nowrp">Sun & Wed</span> </p>
-                <p class="user-cls-time tz-details">Eastern Standard Time</p>
-            </div>
-
-            <div class="rightbox boxbox boxbox ">
-                <p class="user-cls-hour tz-bold"> <span class='nowrp'>5:00 PM</span> - <span class='nowrp'>6:00 PM</span></p>
-                <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                <div class="rightbox boxbox">
+                    <p class="chosen-hour tz-bold"> <span class='nowrp'>10:00 AM</span> - <span class='nowrp'>11:00 AM</span></p>
+                    <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                </div>
             </div>
         </div>
-        <div class="conv-chosen-zone timeconvertorchild split-3-columns">
-            <div class="leftbox boxbox">
-                <p><span class="minwidth"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span><span class="schedule-text day-of-week nowrp">Sun & Wed</span> </p>
-                <p class="chosen-timezone tz-details">America/New_York</p>
-            </div>
-
-            <div class="rightbox boxbox">
-                <p class="chosen-hour tz-bold"> <span class='nowrp'>10:00 AM</span> - <span class='nowrp'>11:00 AM</span></p>
-                <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
-            </div>
-        </div>
-    </div>
 
 
-    <script>
-        jQuery('.time-conv').each(function() {
+        <script>
+            jQuery('.time-conv').each(function() {
 
-            var day_1st = 'Sun';
-            var day_2nd = 'Wed';
-            var myMonth = 3;
-            var myDay = 03;
-            var myHour = 10;
-            var myMinute = 10;
-            var totalMinutes = 90;
+                var day_1st = 'Sun';
+                var day_2nd = 'Wed';
+                var myMonth = 3;
+                var myDay = 03;
+                var myHour = 10;
+                var myMinute = 10;
+                var totalMinutes = 90;
 
 
-            let dt1Start = luxon.DateTime.fromObject({
-                month: myMonth,
-                day: myDay,
-                hour: myHour,
-                minute: 0
-            }, {
-                zone: 'America/New_York'
+                let dt1Start = luxon.DateTime.fromObject({
+                    month: myMonth,
+                    day: myDay,
+                    hour: myHour,
+                    minute: 0
+                }, {
+                    zone: 'America/New_York'
+                });
+
+                // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
+                let dtHourStart = dt1Start.toLocaleString({
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+
+                // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
+                let dtLocalZone = dt1Start.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
+
+                // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
+                let dtTimeZone = dt1Start.zoneName;
+
+                let dt1End = dt1Start.plus({
+                    hours: 1
+                });
+
+                // let dtHourEnd = dt1End.get('hour');
+                let dtHourEnd = dt1End.toLocaleString({
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+
+
+                //
+                let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
+                let dt2HourStart = dt2.toLocaleString({
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+
+                let dt2HourEnd = dt2.plus({
+                    hours: 1
+                }).toLocaleString({
+                    hour: 'numeric',
+                    minute: '2-digit'
+                });
+
+
+
+
+                jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
+                jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
+                jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
+                jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
+                jQuery('.your-hour').text("" + dt2HourStart + " - " + dt2HourEnd);
+                jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
+
             });
-
-            // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-            let dtHourStart = dt1Start.toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-
-            // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
-            let dtLocalZone = dt1Start.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
-
-            // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
-            let dtTimeZone = dt1Start.zoneName;
-
-            let dt1End = dt1Start.plus({
-                hours: 1
-            });
-
-            // let dtHourEnd = dt1End.get('hour');
-            let dtHourEnd = dt1End.toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
+        </script>
 
 
-            //
-            let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
-            let dt2HourStart = dt2.toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-
-            let dt2HourEnd = dt2.plus({
-                hours: 1
-            }).toLocaleString({
-                hour: 'numeric',
-                minute: '2-digit'
-            });
-
-
-
-
-            jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZone);
-            jQuery('.time-conv .leftbox .chosen-timezone').text("" + dtTimeZone);
-            jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
-            jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
-            jQuery('.your-hour').text("" + dt2HourStart + " - " + dt2HourEnd);
-            jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
-
-        });
-    </script>
-
-
-</body>
+    </body>
 
 </html>
