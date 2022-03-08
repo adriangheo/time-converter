@@ -144,12 +144,11 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         //let dtTimeZoneNY = dt1StartNY.zoneName;
 
-        let dt1EndNY = dt1StartNY.plus({
-            minutes: total_total_minutes
-        });
 
         // let dtHourEndNY = dt1EndNY.get('hour');
-        let dtHourEndNY = dt1EndNY.toLocaleString({
+        let dtHourEndNY = dt1EndNY.plus({
+            minutes: total_total_minutes
+        }).toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
@@ -180,9 +179,6 @@
 
         jQuery('.time-conv .middlebox .schedule-text').text("" + day_1st + " & " + day_2nd);
         jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
-
-
-
         jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
 
