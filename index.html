@@ -226,14 +226,14 @@
 
         // ↓↓↓ variables partaining to America/New_York dates and times
         // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-        let dtHourStartNY = dt1StartNY.toFormat('HH:mm');
+        let dt1HourStartNY = dt1StartNY.toFormat('HH:mm');
 
         // let dtHourEndNY = dt1EndNY.get('hour');
-        let dtHourEndNYobj = dt1StartNY.plus({
+        let dt1HourEndNYobj = dt1StartNY.plus({
             minutes: total_course_minutes
         })
 
-        let dtHourEndNY_string = dtHourEndNYobj.toFormat('HH:mm');
+        let dtHourEndNY_string = dt1HourEndNYobj.toFormat('HH:mm');
 
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -250,7 +250,7 @@
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
-        let dt1EndNYFullDate = "" + dtHourEndNYobj.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy -- HH:mm");
         console.log('dt1EndNYFullDate');
         console.log(dt1EndNYFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
@@ -305,8 +305,8 @@
         // jQuery(this).find('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         // jQuery(this).find('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        // jQuery(this).find('.rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
-        // jQuery(this).find('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
+        // jQuery(this).find('.rightbox .schedule-text').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
+        // jQuery(this).find('.chosen-hour').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
 
 
         // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
@@ -321,8 +321,8 @@
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
-        jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
+        jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
+        jQuery('.chosen-hour').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
 
 
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
