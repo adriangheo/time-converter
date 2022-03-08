@@ -161,12 +161,12 @@
         let userTimeZoneAbrev = userDateTimeObj.toFormat('ZZZZZ');
 
         let dt2UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        let dt2HourStart = dt2UsrTz.toLocaleString({
+        let dt2HourStartUsrTz = dt2UsrTz.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
 
-        let dt2HourEnd = dt2UsrTz.plus({
+        let dt2HourEndUsrTz = dt2UsrTz.plus({
             minutes: total_total_minutes
         }).toLocaleString({
             hour: 'numeric',
@@ -187,8 +187,8 @@
 
 
         jQuery('.user-cls-time').text(userTimeZoneAbrev);
-        jQuery('.user-cls-hour .start-hr').text(dt2HourStart);
-        jQuery('.user-cls-hour .end-hr').text(dt2HourEnd);
+        jQuery('.user-cls-hour .start-hr').text(dt2HourStartUsrTz);
+        jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
 
 
 
