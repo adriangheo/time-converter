@@ -231,6 +231,10 @@
 
 
             //
+            let userDateTimeObj = luxon.DateTime.local();
+            let userTimeZoneLong = userDateTimeObj.zoneName;
+            let userTimeZoneAbrev = userDateTimeObj.toFormat('ZZZZZ');
+
             let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
             let dt2HourStart = dt2.toLocaleString({
                 hour: 'numeric',
@@ -253,7 +257,9 @@
             jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
 
 
-            jQuery('.user-cls-time').text(dt2HourEnd);
+            jQuery('.user-cls-time').text(userTimeZoneAbrev);
+
+
             jQuery('.user-cls-hour .start-hr').text(dt2HourStart);
             jQuery('.user-cls-hour .end-hr').text(dt2HourEnd);
 
