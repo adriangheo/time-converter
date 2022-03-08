@@ -172,19 +172,20 @@
         // ↓↓↓ variables partaining to UserTimeZone dates and times
         let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
-        let dt2UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        let dt2HourStartUsrTz = dt2UsrTz.toLocaleString({
+        let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
+        let dt2HourStartUsrTz = dt1UsrTz.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
 
-        let dt2HourEndUsrTz = dt2UsrTz.plus({
+        let dt2HourEndUsrTz = dt1UsrTz.plus({
             minutes: total_total_minutes
         }).toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
         // ↑↑↑ variables partaining to UserTimeZone dates and times
+
 
 
 
