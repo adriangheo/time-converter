@@ -172,7 +172,8 @@
         });
 
         let dt2HourEnd = dt2.plus({
-            hours: 1
+            hours: 1,
+            minutes: total_total_minutes
         }).toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
