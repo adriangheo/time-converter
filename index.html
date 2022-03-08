@@ -58,8 +58,8 @@
 
 
     <div class="timeconvertorparent">
-        <div class="date-and-time-of-first-course">21-Jun-2022 22:00</div>
-        <div class="date-of-second-course">22-Jun-2022</div>
+        <div class="date-and-time-of-first-course">31-Dec-2022 22:00</div>
+        <div class="date-of-second-course">01-Jan-2023</div>
         <div class="total-course-minutes">95</div>
         <div class="timeconvertorchild">
 
@@ -277,19 +277,19 @@
             // ↑↑↑ get month and day for title (User TimeZone)
 
 
-            jQuery('.usr-strt-date').text(dt1UsrMonthAndDay);
+            jQuery(this).find('.usr-strt-date').text(dt1UsrMonthAndDay);
 
-            jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
+            jQuery(this).find('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
-            jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-            jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
-            jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
+            jQuery(this).find('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
+            jQuery(this).find('.rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
+            jQuery(this).find('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
 
 
-            jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
-            jQuery('.user-cls-time').text(dtLocalUsrTz);
-            jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
-            jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
+            jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
+            jQuery(this).find('.user-cls-time').text(dtLocalUsrTz);
+            jQuery(this).find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
+            jQuery(this).find('.user-cls-hour .end-hr').text(dt2HourEndUsrTz);
 
 
 
