@@ -163,7 +163,7 @@
 
         //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy hh:mm" (eg. if day is smaller than 10 add 0 in front) 
         // var date_and_time_of_first_course = jQuery(this).find('.date-and-time-of-first-course').text();
-        var date_and_time_of_first_course = "20-Jun-2022 15:45";
+        var date_and_time_of_first_course = "20-Jun-2022 15:30";
 
 
 
@@ -171,7 +171,7 @@
         // var date_of_second_course = jQuery(this).find('.date-of-second-course').text();
         var date_of_second_course = "22-Jun-2022";
         // var total_course_minutes = jQuery(this).find('.total-course-minutes').text();
-        var total_course_minutes = 90;
+        var total_course_minutes = 150;
 
         function getMonthFromString(mon) {
             return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
@@ -292,11 +292,15 @@
         //IMPORTANT PART
         // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
         let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log('dt1StartNYFullDate');
+        console.log(dt1StartNYFullDate);
         // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
         let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log('dt1EndNYFullDate');
+        console.log(dt1EndNYFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
