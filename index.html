@@ -56,11 +56,11 @@
 
 <body>
 
-
     <div class="timeconvertorparent">
-        <div class="date-and-time-of-first-course">31-Dec-2022 22:00</div>
-        <div class="date-of-second-course">01-Jan-2023</div>
-        <div class="total-course-minutes">95</div>
+        <div class="date-and-time-of-first-course">20-Jun-2022 23:00</div>
+        <div class="date-of-second-course">22-Jun-2022</div>
+        <div class="total-course-minutes">90</div>
+
         <div class="timeconvertorchild">
 
             <div class="headerbox boxbox">
@@ -81,7 +81,7 @@
 
             <div class="rightbox boxbox boxbox ">
                 <p class="user-cls-hour tz-bold"> <span class='nowrp start-hr'>5:00 PM</span> - <span class='nowrp end-hr'>6:00 PM</span></p>
-                <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                <p class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></p>
             </div>
         </div>
 
@@ -100,13 +100,14 @@
 
             <div class="rightbox boxbox">
                 <p class="chosen-hour tz-bold"> <span class='nowrp start-hr'>10:00 AM</span> - <span class='nowrp end-hr'>11:00 AM</span></p>
-                <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                <p class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></p>
             </div>
         </div>
     </div>
 
     <hr>
     <hr>
+
 
     <div class="timeconvertorparent">
         <div class="date-and-time-of-first-course">20-Jun-2022 23:00</div>
@@ -133,7 +134,7 @@
 
             <div class="rightbox boxbox boxbox ">
                 <p class="user-cls-hour tz-bold"> <span class='nowrp start-hr'>5:00 PM</span> - <span class='nowrp end-hr'>6:00 PM</span></p>
-                <p class="tz-details full-date"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                <p class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></p>
             </div>
         </div>
 
@@ -152,7 +153,7 @@
 
             <div class="rightbox boxbox">
                 <p class="chosen-hour tz-bold"> <span class='nowrp start-hr'>10:00 AM</span> - <span class='nowrp end-hr'>11:00 AM</span></p>
-                <p class="tz-details full-date"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+                <p class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></p>
             </div>
         </div>
     </div>
@@ -163,7 +164,7 @@
 
         //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy hh:mm" (eg. if day is smaller than 10 add 0 in front) 
         // var date_and_time_of_first_course = jQuery(this).find('.date-and-time-of-first-course').text();
-        var date_and_time_of_first_course = "20-Jun-2022 15:30";
+        var date_and_time_of_first_course = "20-Jun-2022 16:30";
 
 
 
@@ -273,9 +274,6 @@
 
 
 
-
-
-
         // ↓↓↓ variables partaining to America/New_York dates and times
         // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
         let dt1HourStartNY = dt1StartNY.toFormat('HH:mm');
@@ -373,12 +371,17 @@
         jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
         jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
         jQuery('.chosen-hour').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
+        jQuery('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
+        jQuery('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
+
 
 
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         jQuery('.user-cls-time').text(dtLocalUsrTz);
         jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
         jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString);
+        jQuery('.user-tz .date-of-start').text(dt1StartUsrFullDate);
+        jQuery('.user-tz .date-of-end').text(dt1EndUsrFullDate);
 
 
 
