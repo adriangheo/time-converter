@@ -150,7 +150,7 @@
         let dtTimeZone = dt1Start.zoneName;
 
         let dt1End = dt1Start.plus({
-            hours: 1
+            minutes: total_total_minutes
         });
 
         // let dtHourEnd = dt1End.get('hour');
@@ -172,7 +172,6 @@
         });
 
         let dt2HourEnd = dt2.plus({
-            hours: 1,
             minutes: total_total_minutes
         }).toLocaleString({
             hour: 'numeric',
@@ -188,13 +187,14 @@
         jQuery('.time-conv .rightbox .schedule-text').text("" + dtHourStart + " - " + dtHourEnd);
 
 
+
+        jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
+
+
         jQuery('.user-cls-time').text(userTimeZoneAbrev);
-
-
         jQuery('.user-cls-hour .start-hr').text(dt2HourStart);
         jQuery('.user-cls-hour .end-hr').text(dt2HourEnd);
 
-        jQuery('.chosen-hour').text("" + dtHourStart + " - " + dtHourEnd);
 
 
         // });
