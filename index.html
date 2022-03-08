@@ -124,6 +124,7 @@
         var cMinute = date_and_time_of_first_course.substring(15, 17)
 
 
+
         // ↓↓↓ initial LuxonJs Object (in New York time)
         let dt1StartNY = luxon.DateTime.fromObject({
             month: myMonth,
@@ -139,11 +140,25 @@
         // ↓↓↓ get days of the week for 1st and 2nd day of course (New York Time)
         let dt1StartNYweekday = dt1StartNY.weekdayShort;
 
-        let dt2StartNYweekday = dt1StartNY.set({
+
+        let dt2StartNY = dt1StartNY.set({
             day: date_of_second_course.substring(0, 2),
             month: getMonthFromString(date_of_second_course.substring(3, 6))
-        }).weekdayShort;
+        });
+
+        let dt2StartNYweekday = dt2StartNY.weekdayShort;
         // ↑↑↑  get days of the week for 1st and 2nd day of course (New York Time)
+
+
+
+
+        // ↓↓↓ get date difernce in days between 1st and 2nd day of course
+        let diff = dt2StartNY.diff(dt1StartNY, ["days"]);
+        let diffInDays = diff.days;
+
+
+        // ↑↑↑get date difernce in days between 1st and 2nd day of course
+
 
 
 
