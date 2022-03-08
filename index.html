@@ -207,9 +207,8 @@
         // ↓↓↓ get days of the week for 1st and 2nd day of course (User TimeZone)
         let dt1StartUsrTzWeekday = dt1UsrTz.weekdayShort;
 
-        let dt2StartUsrTzWeekday = dt1UsrTz.set({
-            day: date_of_second_course.substring(0, 2),
-            month: getMonthFromString(date_of_second_course.substring(3, 6))
+        let dt2StartUsrTzWeekday = dt1UsrTz.plus({
+            days: diffInDays
         }).weekdayShort;
         // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
 
