@@ -232,9 +232,11 @@
         });
 
         // let dtHourEndNY = dt1EndNY.get('hour');
-        let dtHourEndNY = dt1StartNY.plus({
+        let dtHourEndNYobj = dt1StartNY.plus({
             minutes: total_course_minutes
-        }).toLocaleString({
+        })
+
+        let dtHourEndNY_string = dtHourEndNYobj.toLocaleString({
             hour: 'numeric',
             minute: '2-digit'
         });
@@ -244,6 +246,20 @@
         let dtLocalZoneNY = dt1StartNY.toFormat("ZZZZZ");
         // ↑↑↑ variables partaining to America/New_York dates and times
 
+
+        //IMPORTANT PART
+        // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
+        let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log('dt1StartNYFullDate');
+        console.log(dt1StartNYFullDate);
+        // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
+
+
+        // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
+        let dt1EndNYFullDate = "" + dtHourEndNYobj.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log('dt1EndNYFullDate');
+        console.log(dt1EndNYFullDate);
+        // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
         // ↓↓↓ variables partaining to UserTimeZone dates and times
@@ -255,13 +271,9 @@
             minute: '2-digit'
         });
 
-
-
         let dt2HourEndUsrTz = dt1UsrTz.plus({
             minutes: total_course_minutes
         });
-
-
 
         let dt2HourEndUsrTzString = dt2HourEndUsrTz.toLocaleString({
             hour: 'numeric',
@@ -288,12 +300,14 @@
 
         // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
         let dt1StartUsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log('dt1StartUsrFullDate');
         console.log(dt1StartUsrFullDate);
         // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
         let dt1EndUsrFullDate = "" + dt2HourEndUsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        console.log('dt1EndUsrFullDate');
         console.log(dt1EndUsrFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
@@ -303,8 +317,8 @@
         // jQuery(this).find('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         // jQuery(this).find('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        // jQuery(this).find('.rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
-        // jQuery(this).find('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
+        // jQuery(this).find('.rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
+        // jQuery(this).find('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
 
 
         // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
@@ -319,8 +333,8 @@
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY);
-        jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY);
+        jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
+        jQuery('.chosen-hour').text("" + dtHourStartNY + " - " + dtHourEndNY_string);
 
 
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
