@@ -56,39 +56,39 @@
         <div class="time-conv">
 
             <div class="headerbox boxbox">
-                <h2>Group A starting date: <span class="start-date">March 10th</span></h2>
+                <p>Group A starting date: <span class="start-date">March 10th</span></p>
             </div>
 
         </div>
         <div class="time-conv">
             <div class="leftbox boxbox">
-                <h2>Your time</h2>
+                <p>Your time</p>
                 <p class="your-time"></p>
             </div>
 
             <div class="middlebox boxbox">
-                <h2>Day1st and Day2nd</h2>
+                <p>Day1st and Day2nd</p>
                 <p class="schedule-text"></p>
             </div>
 
             <div class="rightbox boxbox">
-                <h2>Timezone time</h2>
+                <p>Timezone time</p>
                 <p class="your-hour"></p>
             </div>
         </div>
         <div class="time-conv">
             <div class="leftbox boxbox">
-                <h2>Chosen timezone</h2>
+                <p>Chosen timezone</p>
                 <p class="chosen-timezone"></p>
             </div>
 
             <div class="middlebox boxbox">
-                <h2>Day1st and Day2nd</h2>
+                <p>Day1st and Day2nd</p>
                 <p class="schedule-text"></p>
             </div>
 
             <div class="rightbox boxbox">
-                <h2>Timezone time</h2>
+                <p>Timezone time</p>
                 <p class="chosen-hour"></p>
             </div>
         </div>
@@ -123,7 +123,7 @@
             });
 
             // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
-            let dtLocalZone = dt1Start.toFormat("ZZZZZ");
+            let dtLocalZone = dt1Start.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
             // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
             let dtTimeZone = dt1Start.zoneName;
@@ -139,7 +139,7 @@
             });
 
 
-
+//
             let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
             let dt2HourStart = dt2.toLocaleString({
                 hour: 'numeric',
