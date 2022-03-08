@@ -124,7 +124,7 @@
         var cMinute = date_and_time_of_first_course.substring(15, 17)
 
 
-        // ↓↓↓ initial LuxonJs Object
+        // ↓↓↓ initial LuxonJs Object (in New York time)
         let dt1StartNY = luxon.DateTime.fromObject({
             month: myMonth,
             day: cDay1st,
@@ -134,6 +134,15 @@
             zone: 'America/New_York'
         });
         // ↑↑↑ initial LuxonJs Object
+
+
+        // ↓↓↓ variables partaining to the day of the second course (in New York time)  
+        let dt2StartNY = dt1StartNY.set({
+            day: date_of_second_course.substring(0, 2),
+            month: getMonthFromString(date_of_second_course.substring(3, 6))
+        });
+        // ↑↑↑ initial LuxonJs Object
+
 
 
         // ↓↓↓ variables partaining to America/New_York dates and times
@@ -176,6 +185,9 @@
             minute: '2-digit'
         });
         // ↑↑↑ variables partaining to UserTimeZone dates and times
+
+
+
 
 
 
