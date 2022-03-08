@@ -186,8 +186,8 @@
         var cMinute = date_and_time_of_first_course.substring(15, 17)
 
 
-
-        // ↓↓↓ initial LuxonJs Object (in New York time)
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
         let dt1StartNY = luxon.DateTime.fromObject({
             month: myMonth,
             day: cDay1st,
@@ -196,17 +196,37 @@
         }, {
             zone: 'America/New_York'
         });
-        // ↑↑↑ initial LuxonJs Object
+        // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
-        // ↓↓↓ get days of the week for 1st and 2nd day of course (New York Time)
-        let dt1StartNYweekday = dt1StartNY.weekdayShort;
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+        let dt1HourEndNYobj = dt1StartNY.plus({
+            minutes: total_course_minutes
+        });
+        // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
 
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
         let dt2StartNY = dt1StartNY.set({
             day: date_of_second_course.substring(0, 2),
             month: getMonthFromString(date_of_second_course.substring(3, 6))
         });
+        // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+
+
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+        // ↓↓↓ get days of the week for 1st and 2nd day of course (New York Time)
+        let dt1StartNYweekday = dt1StartNY.weekdayShort;
 
         let dt2StartNYweekday = dt2StartNY.weekdayShort;
         // ↑↑↑  get days of the week for 1st and 2nd day of course (New York Time)
@@ -217,8 +237,6 @@
         // ↓↓↓ get date difernce in days between 1st and 2nd day of course
         let diff = dt2StartNY.diff(dt1StartNY, ["days"]);
         let diffInDays = diff.days;
-
-
         // ↑↑↑get date difernce in days between 1st and 2nd day of course
 
 
@@ -228,10 +246,6 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
         let dt1HourStartNY = dt1StartNY.toFormat('HH:mm');
 
-        // let dtHourEndNY = dt1EndNY.get('hour');
-        let dt1HourEndNYobj = dt1StartNY.plus({
-            minutes: total_course_minutes
-        })
 
         let dtHourEndNY_string = dt1HourEndNYobj.toFormat('HH:mm');
 
@@ -244,29 +258,46 @@
         //IMPORTANT PART
         // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
         let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy -- HH:mm");
-        console.log('dt1StartNYFullDate');
-        console.log(dt1StartNYFullDate);
         // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
         let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy -- HH:mm");
-        console.log('dt1EndNYFullDate');
-        console.log(dt1EndNYFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
         // ↓↓↓ variables partaining to UserTimeZone dates and times
         let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
-        let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-        let dt1HourStartUsrTz = dt1UsrTz.toFormat('HH:mm');
 
-        let dt2HourEndUsrTz = dt1UsrTz.plus({
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+        let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+        let dt1HourEndUsrTz = dt1UsrTz.plus({
             minutes: total_course_minutes
         });
+        // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+        //-----------------------------------------------------------------------------------------------------------------------------------
 
-        let dt2HourEndUsrTzString = dt2HourEndUsrTz.toFormat('HH:mm');
+
+
+        let dt1HourStartUsrTz = dt1UsrTz.toFormat('HH:mm');
+
+
+
+
+
+        let dt1HourEndUsrTzString = dt1HourEndUsrTz.toFormat('HH:mm');
         // ↑↑↑ variables partaining to UserTimeZone dates and times
 
 
@@ -274,11 +305,16 @@
 
         // ↓↓↓ get days of the week for 1st and 2nd day of course (User TimeZone)
         let dt1StartUsrTzWeekday = dt1UsrTz.weekdayShort;
+        // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
 
+
+        // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
         let dt2StartUsrTzWeekday = dt1UsrTz.plus({
             days: diffInDays
         }).weekdayShort;
-        // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
+        // ↑↑↑  LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
+
+
 
 
         // ↓↓↓ get month and day for title (User TimeZone)
@@ -294,7 +330,7 @@
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
-        let dt1EndUsrFullDate = "" + dt2HourEndUsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        let dt1EndUsrFullDate = "" + dt1HourEndUsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
         console.log('dt1EndUsrFullDate');
         console.log(dt1EndUsrFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
@@ -328,7 +364,7 @@
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         jQuery('.user-cls-time').text(dtLocalUsrTz);
         jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
-        jQuery('.user-cls-hour .end-hr').text(dt2HourEndUsrTzString);
+        jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString);
 
 
 
