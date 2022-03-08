@@ -94,6 +94,42 @@
         </div>
     </div>
 
+    <br/><br/><br/><br/><br/><br/><br/>
+
+
+
+    <div class="timeconvertorparent">
+        <div class="timeconvertorchild">
+
+            <div class="headerbox boxbox">
+                <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="start-date">March 10th</span></p>
+            </div>
+
+        </div>
+        <div class="conv-local-zone timeconvertorchild split-3-columns">
+            <div class="leftbox boxbox">
+                <p><span class="tz-bold minwidth">Your time </span><span class="schedule-text day-of-week nowrp">Sun & Wed</span> </p>
+                <p class="user-cls-time tz-details">Eastern Standard Time</p>
+            </div>
+
+            <div class="rightbox boxbox boxbox ">
+                <p class="user-cls-hour tz-bold"> <span class='nowrp'>5:00 PM</span> - <span class='nowrp'>6:00 PM</span></p>
+                <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+            </div>
+        </div>
+        <div class="conv-chosen-zone timeconvertorchild split-3-columns">
+            <div class="leftbox boxbox">
+                <p><span class="minwidth"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span><span class="schedule-text day-of-week nowrp">Sun & Wed</span> </p>
+                <p class="chosen-timezone tz-details">America/New_York</p>
+            </div>
+
+            <div class="rightbox boxbox">
+                <p class="chosen-hour tz-bold"> <span class='nowrp'>10:00 AM</span> - <span class='nowrp'>11:00 AM</span></p>
+                <p class="tz-details"><span class='nowrp'>Sun, Mar 6 2022</span> - <span class='nowrp'>Sun, Mar 6 2022</span></p>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         jQuery('.time-conv').each(function() {
@@ -139,7 +175,7 @@
             });
 
 
-//
+            //
             let dt2 = dt1Start.setZone(luxon.DateTime.local().zoneName);
             let dt2HourStart = dt2.toLocaleString({
                 hour: 'numeric',
