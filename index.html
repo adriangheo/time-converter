@@ -136,14 +136,14 @@
         // ↑↑↑ initial LuxonJs Object
 
 
-        // ↓↓↓ get days of the week for 1st and 2nd day of course 
+        // ↓↓↓ get days of the week for 1st and 2nd day of course (New York Time)
         let dt1StartNYweekday = dt1StartNY.weekdayShort;
 
         let dt2StartNYweekday = dt1StartNY.set({
             day: date_of_second_course.substring(0, 2),
             month: getMonthFromString(date_of_second_course.substring(3, 6))
         }).weekdayShort;
-        // ↑↑↑  get days of the week for 1st and 2nd day of course 
+        // ↑↑↑  get days of the week for 1st and 2nd day of course (New York Time)
 
 
 
