@@ -20,7 +20,8 @@
 
             jQuery(".split-3-columns").css({
                 'display': 'grid',
-                'grid-template-columns': 'repeat(auto-fit, minmax(100px, 1fr))',
+                // 'grid-template-columns': 'repeat(auto-fit, minmax(100px, 1fr))',
+                'grid-template-columns': '1fr auto-fit 1fr',
                 'font-size': '0.8em'
             });
 
@@ -267,7 +268,7 @@
                 // ↓↓↓ get date difernce in days between 1st and 2nd day of course
                 let diff = dt2StartNY.diff(dt1StartNY, ["days"]);
                 let diffInDays = diff.days;
-                // ↑↑↑get date difernce in days between 1st and 2nd day of course
+                // ↑↑↑get date difernce in days between 1st and 2nd day of course00
 
 
                 let dt2StartUsrTz = dt1UsrTz.plus({
@@ -299,14 +300,14 @@
 
                 //IMPORTANT PART
                 // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
-                let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy -- HH:mm");
+                let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy -");
                 console.log('dt1StartNYFullDate');
                 console.log(dt1StartNYFullDate);
                 // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
                 // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
-                let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy -- HH:mm");
+                let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy -");
                 console.log('dt1EndNYFullDate');
                 console.log(dt1EndNYFullDate);
                 // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
