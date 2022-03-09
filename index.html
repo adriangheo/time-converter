@@ -129,7 +129,7 @@
         <div class="conv-local-zone timeconvertorchild split-3-columns user-tz">
             <div class="leftbox boxbox">
 
-                <p><span class="tz-bold minwidth tz-yt-1">Your time </span><span class="minwidth tz-yt-2 day-of-week">Sun & Wed</span> <span class="user-cls-hour tz-bold"> <span class='nowrp start-hr'>5:00 PM</span> - <span class='nowrp end-hr'>6:00 PM</span></span>
+                <p><span class="tz-bold minwidth tz-yt-1">Your time </span><span class="minwidth tz-yt-2 day-of-week">Sun & Wed</span> <span class="user-cls-hour tz-bold"> <span class='nowrp start-hr'>-:-- PM</span> - <span class='nowrp end-hr'>-:-- PM</span></span>
                 </p>
 
                 <p><span class="user-cls-time tz-details">Eastern Standard Time</span> <span class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
@@ -141,7 +141,7 @@
         <div class="conv-chosen-zone timeconvertorchild split-3-columns new-york-tz">
             <div class="leftbox boxbox">
 
-                <p><span class="minwidth tz-nyt-1"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span> <span class="minwidth tz-nyt-2 day-of-week">Sun & Wed</span> <span class="chosen-hour tz-bold"> <span class='nowrp start-hr'>10:00 AM</span>                    - <span class='nowrp end-hr'>11:00 AM</span></span>
+                <p><span class="minwidth tz-nyt-1"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span> <span class="minwidth tz-nyt-2 day-of-week">Sun & Wed</span> <span class="chosen-hour tz-bold"> <span class='nowrp start-hr'>-:-- AM</span>                    - <span class='nowrp end-hr'>-:-- AM</span></span>
                 </p>
 
                 <p><span class="chosen-timezone tz-details">America/New_York</span> <span class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
@@ -271,10 +271,11 @@
 
         // ↓↓↓ variables partaining to America/New_York dates and times
         // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
-        let dt1HourStartNY = dt1StartNY.toFormat('HH:mm');
+        let dt1HourStartNY24h = dt1StartNY.toFormat('HH:mm');
+        let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
 
-
-        let dtHourEndNY_string = dt1HourEndNYobj.toFormat('HH:mm');
+        let dtHourEndNY24h = dt1HourEndNYobj.toFormat('HH:mm');
+        let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
 
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -301,11 +302,16 @@
         let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
 
 
-        let dt1HourStartUsrTz = dt1UsrTz.toFormat('HH:mm');
 
-        // ↓↓↓ variables partaining to UserTimeZone dates and times
-        let dt1HourEndUsrTzString = dt1HourEndUsrTz.toFormat('HH:mm');
-        // ↑↑↑ variables partaining to UserTimeZone dates and times
+
+        // ↓↓↓ variables partaining to UserTimeZone hours and minutes
+
+        let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('HH:mm');
+        let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
+
+        let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('HH:mm');
+        let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
+        // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
 
         // ↓↓↓ get days of the week for 1st and 2nd day of course (User TimeZone)
@@ -342,8 +348,8 @@
         // jQuery(this).find('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         // jQuery(this).find('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        // jQuery(this).find('.timeconvertorparent .rightbox .schedule-text').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
-        // jQuery(this).find('.chosen-hour').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
+        // //jQuery(this).find('.timeconvertorparent .rightbox .schedule-text').text("" + dt1HourStartNY24h + " - " + dtHourEndNY24h);
+        // jQuery(this).find('.chosen-hour').text("" + dt1HourStartNY24h + " - " + dtHourEndNY24h);
         // jQuery(this).find('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
         // jQuery(this).find('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
 
@@ -351,8 +357,8 @@
 
         // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         // jQuery(this).find('.user-cls-time').text(dtLocalUsrTz);
-        // jQuery(this).find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
-        // jQuery(this).find('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString);
+        // jQuery(this).find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
+        // jQuery(this).find('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
         // jQuery(this).find('.user-tz .date-of-start').text(dt1StartUsrFullDate);
         // jQuery(this).find('.user-tz .date-of-end').text(dt1EndUsrFullDate);
 
@@ -362,8 +368,8 @@
         jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
 
         jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
-        jQuery('.chosen-hour').text("" + dt1HourStartNY + " - " + dtHourEndNY_string);
+        // //jQuery('.timeconvertorparent .rightbox .schedule-text').text("" + dt1HourStartNY24h + " - " + dtHourEndNY24h);
+        jQuery('.chosen-hour').text("" + dt1HourStartNY24h + " - " + dtHourEndNY24h);
         jQuery('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
         jQuery('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
 
@@ -371,8 +377,8 @@
 
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         jQuery('.user-cls-time').text(dtLocalUsrTz);
-        jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz);
-        jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString);
+        // jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
+        // jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
         jQuery('.user-tz .date-of-start').text(dt1StartUsrFullDate);
         jQuery('.user-tz .date-of-end').text(dt1EndUsrFullDate);
 
