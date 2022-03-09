@@ -364,24 +364,21 @@
 
         jQuery('.usr-strt-date').text(dt1UsrMonthAndDay);
 
-        jQuery('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
-
-        jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-        jQuery('.chosen-hour').text("" + dt1HourStartNY24h + " - " + dtHourEndNY24h);
-        jQuery('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
-        jQuery('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
-
-
 
         jQuery('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
         jQuery('.user-cls-time').text(dtLocalUsrTz);
-
         jQuery('.user-tz .date-of-start').text(dt1StartUsrFullDate);
         jQuery('.user-tz .date-of-end').text(dt1EndUsrFullDate);
+        jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
+        jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
 
-        // jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
-        // jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
 
+        jQuery('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
+        jQuery('.chosen-timezone').text("" + dtLocalZoneNY);
+        jQuery('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
+        jQuery('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
+        jQuery('.new-york-tz .start-hr').text(dt1HourStartNY24h);
+        jQuery('.new-york-tz .end-hr').text(dtHourEndNY24h);
 
 
 
