@@ -230,7 +230,7 @@
         <tr class="conv-row">
             <td class="conv-cell" colspan=3>
                 <div class="conv-but">
-                    x Button
+                    24h
                 </div>
             </td>
         </tr>
@@ -535,6 +535,27 @@
         //         }
         //     });
         // });
+
+
+        jQuery(this).each(function() {
+            var parentElement = jQuery(this);
+            jQuery(this).find(".conv-but").eq(0).on('click', function() {
+                var myBtn = jQuery(this);
+                if (myBtn.text() === "am/pm") {
+                    myBtn.text("24h")
+                    parentElement.find('.usr-row .start-hr').text(dt1HourStartUsrTz24h);
+                    parentElement.find('.usr-row .end-hr').text(dt1HourEndUsrTzString24h);
+                    parentElement.find('.nyt-row .start-hr').text(dt1HourStartNY24h);
+                    parentElement.find('.nyt-row .end-hr').text(dtHourEndNY24h);
+                } else {
+                    myBtn.text("am/pm");
+                    parentElement.find('.usr-row .start-hr').text(dt1HourStartUsrTzAmPm);
+                    parentElement.find('.usr-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
+                    parentElement.find('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
+                    parentElement.find('.nyt-row .end-hr').text(dtHourEndNYAmPm);
+                }
+            });
+        });
 
 
         function getNumberSuffix(num) {
