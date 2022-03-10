@@ -368,30 +368,22 @@
                 let dtLocalZoneShortNY = dt1StartNY.toFormat("ZZZZ");
                 // ↑↑↑ variables partaining to America/New_York dates and times
 
-
-                //IMPORTANT PART
                 // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
                 let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy -");
-                console.log('dt1StartNYFullDate');
-                console.log(dt1StartNYFullDate);
                 // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
                 // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
                 let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy");
-                console.log('dt1EndNYFullDate');
-                console.log(dt1EndNYFullDate);
                 // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
                 // ↓↓↓ variables partaining to UserTimeZone dates and times
                 let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
-
-
+                // ↑↑↑ variables partaining to UserTimeZone dates and times
 
 
                 // ↓↓↓ variables partaining to UserTimeZone hours and minutes
-
                 let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('HH:mm');
                 let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
 
@@ -404,8 +396,6 @@
                 let dt1StartUsrTzWeekday = dt1UsrTz.weekdayShort;
                 // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
 
-
-
                 let dt2StartUsrTzWeekday = dt2StartUsrTz.weekdayShort;
 
 
@@ -416,77 +406,17 @@
 
                 // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
                 let dt1StartUsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy"); //former format toFormat("ccc, LLL dd yyyy")
-                console.log('dt1StartUsrFullDate');
-                console.log(dt1StartUsrFullDate);
                 // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
                 // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
                 let dt1EndUsrFullDate = "" + dt1HourEndUsrTz.toFormat("ccc, LLL dd yyyy");
-                console.log('dt1EndUsrFullDate');
-                console.log(dt1EndUsrFullDate);
                 // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
-
-                // jQuery(this).find('.usr-strt-date').text(dt1UsrMonthAndDay);
-
-                // jQuery(this).find('.time-conv .leftbox .your-time').text("" + dtLocalZoneNY);
-
-                // jQuery(this).find('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-                // jQuery(this).find('.chosen-hour').text("" + dt1HourStartNY24h + " - " + dtHourEndNY24h);
-                // jQuery(this).find('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
-                // jQuery(this).find('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
-
-
-
-                // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
-                // jQuery(this).find('.user-timezone').text(dtLocalUsrTz);
-                // jQuery(this).find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
-                // jQuery(this).find('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
-                // jQuery(this).find('.user-tz .date-of-start').text(dt1StartUsrFullDate);
-                // jQuery(this).find('.user-tz .date-of-end').text(dt1EndUsrFullDate);
-
-
-                jQuery('.usr-strt-date').text(dt1UsrMonthAndDay);
-
-
-                // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
-                jQuery('.user-timezone').text(dtLocalUsrTz);
-                jQuery('.user-tz .date-of-start').text(dt1StartUsrFullDate);
-                jQuery('.user-tz .date-of-end').text(dt1EndUsrFullDate);
-                // jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
-                // jQuery('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
-
                 //replace 1st and 2nd day of the week
-                jQuery('.usrt-row .day-1st').text(dt1StartUsrTzWeekday);
-                jQuery('.usrt-row .day-2nd').text(dt2StartUsrTzWeekday);
-
-
-
-
-
-
-
-
-
-                jQuery('.ny-timezone').text("" + dtLocalZoneNY);
-                jQuery('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
-                jQuery('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
-                jQuery('.new-york-tz .start-hr').text(dt1HourStartNY24h);
-                jQuery('.new-york-tz .end-hr').text(dtHourEndNY24h);
-
-
-
-                // jQuery(this).find('.new-york-tz .day-of-week').text("" + dt1StartNYweekday + " & " + dt2StartNYweekday);
-
-
-
-
-
-
-
-
+                jQuery(this).find('.usrt-row .day-1st').text(dt1StartUsrTzWeekday);
+                jQuery(this).find('.usrt-row .day-2nd').text(dt2StartUsrTzWeekday);
 
                 //replace 1st and 2nd day of the week
                 jQuery(this).find('.nyt-row .day-1st').text(dt1StartNYweekday);
@@ -495,7 +425,6 @@
 
                 //replace course hours start and hour end for user time
                 jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
-                console.log(dt1HourStartUsrTz24h)
                 jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
 
                 //replace course hours start and hour end for New York time
@@ -520,32 +449,7 @@
 
 
 
-
-
-                // object.addEventListener("click", myswitchbtn());
-
-
-                // jQuery(this).each(function() {
-                //     var parentElement = jQuery(this);
-                //     jQuery(this).find(".myswitchbtn").eq(0).on('click', function() {
-                //         var myBtn = jQuery(this);
-                //         if (myBtn.text() === "am/pm") {
-                //             myBtn.text("24h")
-                //             parentElement.find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
-                //             parentElement.find('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
-                //             parentElement.find('.new-york-tz .start-hr').text(dt1HourStartNY24h);
-                //             parentElement.find('.new-york-tz .end-hr').text(dtHourEndNY24h);
-                //         } else {
-                //             myBtn.text("am/pm");
-                //             parentElement.find('.user-cls-hour .start-hr').text(dt1HourStartUsrTzAmPm);
-                //             parentElement.find('.user-cls-hour .end-hr').text(dt1HourEndUsrTzStringAmPm);
-                //             parentElement.find('.new-york-tz .start-hr').text(dt1HourStartNYAmPm);
-                //             parentElement.find('.new-york-tz .end-hr').text(dtHourEndNYAmPm);
-                //         }
-                //     });
-                // });
-
-
+                //functionality for btn 24h to am-pm
                 jQuery(this).each(function() {
                     var parentElement = jQuery(this);
                     jQuery(this).find(".conv-but").eq(0).on('click', function() {
