@@ -70,8 +70,8 @@
 <body>
 
     <div class="timeconvertorparent">
-        <div class="date-and-time-of-first-course">20-Mar-2022 19:00</div>
-        <div class="date-of-second-course">24-Mar-2022</div>
+        <div class="date-and-time-of-first-course">10-Mar-2022 10:00</div>
+        <div class="date-of-second-course">12-Mar-2022</div>
         <div class="total-course-minutes">60</div>
 
         <div class="timeconvertorchild">
@@ -164,16 +164,16 @@
             jQuery('.timeconvertorparent').each(function() {
 
                 //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy hh:mm" (eg. if day is smaller than 10 add 0 in front) 
-                // var date_and_time_of_first_course = jQuery('.date-and-time-of-first-course').text();
-                var date_and_time_of_first_course = "20-Jun-2022 17:30";
+                var date_and_time_of_first_course = jQuery(this).find('.date-and-time-of-first-course').text();
+                // var date_and_time_of_first_course = "20-Jun-2022 17:30";
 
 
 
                 //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy" 
-                // var date_of_second_course = jQuery('.date-of-second-course').text();
-                var date_of_second_course = "22-Jun-2022";
-                // var total_course_minutes = jQuery('.total-course-minutes').text();
-                var total_course_minutes = 150;
+                var date_of_second_course = jQuery(this).find('.date-of-second-course').text();
+                // var date_of_second_course = "22-Jun-2022";
+                var total_course_minutes = jQuery(this).find('.total-course-minutes').text();
+                // var total_course_minutes = 150;
 
                 function getMonthFromString(mon) {
                     return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
@@ -428,13 +428,6 @@
                             return th
                     }
                 }
-
-
-
-                function switch24hWithAmPM(myjqueryobs) {
-
-                }
-
 
             });
         });
