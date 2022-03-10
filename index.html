@@ -414,6 +414,10 @@
                 // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
+
+                jQuery(this).find('.usr-strt-date').text(dt1UsrMonthAndDay);
+
+
                 //replace 1st and 2nd day of the week
                 jQuery(this).find('.usrt-row .day-1st').text(dt1StartUsrTzWeekday);
                 jQuery(this).find('.usrt-row .day-2nd').text(dt2StartUsrTzWeekday);
