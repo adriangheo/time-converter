@@ -9,6 +9,81 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
     <title>TimeConv</title>
 
+    <style>
+        /* Lupu's styling */
+        
+        .time-conv {
+            border: 1px solid #eaeaea;
+            background: #fcfcfc;
+        }
+        
+        .tz-yt-1,
+        .tz-yt-2,
+        .tz-nyt-1,
+        .tz-nyt-2 {
+            display: block;
+            white-space: nowrap;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        
+        .tz-yt-3,
+        .tz-yt-4,
+        .tz-nyt-3,
+        .tz-nyt-4 {
+            white-space: nowrap;
+            font-size: 15px;
+            font-weight: 700;
+        }
+        
+        .group-cls-name {
+            color: #00b189 !important;
+        }
+        
+        th.headerbox {
+            font-size: 15px;
+            background: #fff;
+        }
+        
+        .headerbox .tz-bold {
+            text-align: left;
+        }
+        
+        .tz-bold {
+            font-weight: 600;
+        }
+        
+        .chosen-timezone.tz-details,
+        .user-cls-time.tz-details,
+        .show-date {
+            font-size: 11px;
+            color: #888 !important;
+            font-weight: 600;
+        }
+        
+        .show-time,
+        .show-date {
+            white-space: nowrap !important;
+            display: block;
+        }
+        
+        .conv-but {
+            display: inline;
+            float: right;
+            background: #00b189 !important;
+            padding: 8px !important;
+            border-radius: 20px !important;
+            color: #fff !important;
+            font-weight: 800;
+        }
+        
+        .conv-but:hover {
+            background: #ff5859 !important;
+        }
+        /* Lupu's styling */
+    </style>
+
+
     <script>
         jQuery(document).ready(function() {
             jQuery(".timeconvertorchild").css({
@@ -69,6 +144,10 @@
 
 <body>
 
+
+    <!-- ---------------------------- -->
+    <!-- START OF OLD HTML STRUCTURING-->
+
     <div class="timeconvertorparent">
         <div class="date-and-time-of-first-course">10-Mar-2022 10:00</div>
         <div class="date-of-second-course">12-Mar-2022</div>
@@ -108,12 +187,7 @@
         <p><button class="myswitchbtn">24h</button></p>
     </div>
 
-
-
-
     <hr>
-    <hr>
-
 
     <div class="timeconvertorparent">
         <div class="date-and-time-of-first-course">20-Mar-2022 19:00</div>
@@ -154,9 +228,112 @@
         <p><button class="myswitchbtn">24h</button></p>
 
     </div>
+    <!-- END OF OLD HTML STRUCTURING-->
+    <!-- -------------------------- -->
+
+    <hr>
+    <hr>
+    <hr>
 
 
+    <!-- ----------------------------- -->
+    <!-- START OF NEW HTML STRUCTURING-->
 
+    <div class="timeconvertorparent">
+        <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
+        <div class="date-and-time-of-first-course">16-Mar-2022 16:00</div>
+        <div class="date-of-second-course">16-Mar-2022</div>
+        <div class="total-course-minutes">60</div>
+
+        <table class=time-conv>
+            <th class="headerbox" colspan="3">
+                <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="usr-strt-date">March 10th</span></p>
+            </th>
+            <tr class="conv-row">
+                <td class="conv-cell">
+                    <p> <span class="minwidth tz-yt-1 tz-bold">Your time</span><span class="user-cls-time tz-details">Eastern Standard Time</span></p>
+                </td>
+                <td class="conv-cell">
+                    <p> <span class="minwidth tz-yt-2 day-of-week">Sun & Wed<span></p>
+              </td>
+              <td class="conv-cell">
+                  <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-yt-3'>5:00 PM</span> - <span class='nowrp end-hr tz-yt-4'>6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> -
+                        <span class='nowrp date-of-end'>Sun, Mar 6 2022</span>
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr class="conv-row">
+                <td class="conv-cell">
+                    <p><span class="minwidth tz-nyt-1"><span class="tz-bold">EST </span><span class="tz-details">(New York)</span></span><span class="chosen-timezone tz-details">America/New_York</span></p>
+                </td>
+                <td class="conv-cell">
+                    <p class="minwidth tz-nyt-2 day-of-week">Sun & Wed</p>
+                </td>
+                <td class="conv-cell">
+                    <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>5:00 PM</span> - <span class='nowrp end-hr tz-nyt-4'>6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
+                    </p>
+                </td>
+            </tr>
+            <tr class="conv-row">
+                <td class="conv-cell" colspan=3>
+                    <div class="conv-but">
+                        Button
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <hr>
+
+    <div class="timeconvertorparent">
+        <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
+        <div class="date-and-time-of-first-course">16-Mar-2022 16:00</div>
+        <div class="date-of-second-course">16-Mar-2022</div>
+        <div class="total-course-minutes">60</div>
+
+        <table class=time-conv>
+            <th class="headerbox" colspan="3">
+                <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="usr-strt-date">March 10th</span></p>
+            </th>
+            <tr class="conv-row">
+                <td class="conv-cell">
+                    <p> <span class="minwidth tz-yt-1 tz-bold">Your time</span><span class="user-cls-time tz-details">Eastern Standard Time</span></p>
+                </td>
+                <td class="conv-cell">
+                    <p> <span class="minwidth tz-yt-2 day-of-week">Sun & Wed<span></p>
+              </td>
+              <td class="conv-cell">
+                  <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-yt-3'>5:00 PM</span> - <span class='nowrp end-hr tz-yt-4'>6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> -
+                        <span class='nowrp date-of-end'>Sun, Mar 6 2022</span>
+                        </span>
+                    </p>
+                </td>
+            </tr>
+            <tr class="conv-row">
+                <td class="conv-cell">
+                    <p><span class="minwidth tz-nyt-1"><span class="tz-bold">EST </span><span class="tz-details">(New York)</span></span><span class="chosen-timezone tz-details">America/New_York</span></p>
+                </td>
+                <td class="conv-cell">
+                    <p class="minwidth tz-nyt-2 day-of-week">Sun & Wed</p>
+                </td>
+                <td class="conv-cell">
+                    <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>5:00 PM</span> - <span class='nowrp end-hr tz-nyt-4'>6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
+                    </p>
+                </td>
+            </tr>
+            <tr class="conv-row">
+                <td class="conv-cell" colspan=3>
+                    <div class="conv-but">
+                        Button
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- END OF NEW HTML STRUCTURING-->
+    <!-- -------------------------- -->
 
 
     <script>
