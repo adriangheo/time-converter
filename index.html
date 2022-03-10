@@ -414,8 +414,13 @@
                 // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
 
 
-
+                //insert user month and day in table header
                 jQuery(this).find('.usr-strt-date').text(dt1UsrMonthAndDay);
+
+
+                //insert user timezone
+                jQuery(this).find('.user-timezone').text(dtLocalUsrTz);
+
 
 
                 //replace 1st and 2nd day of the week
