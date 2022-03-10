@@ -215,7 +215,7 @@
         </tr>
         <tr class="conv-row nyt-row">
             <td class="conv-cell">
-                <div><span class="minwidth tz-nyt-1"><span class="tz-bold">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
+                <div><span class="minwidth tz-nyt-1"><span class="tz-bold new-york-tz-short">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
             </td>
             <td class="conv-cell">
                 <p class="minwidth tz-nyt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-1st">x Wed</span></div>
@@ -502,7 +502,7 @@
         jQuery('.nyt-row .date-of-end').text(dt1EndNYFullDate);
 
 
-
+        //replace timezone name for New York Timezone (necesary due to Daylight vs non-Daylight variance)
         jQuery('.ny-timezone').text(dtLocalZoneNY);
 
 
