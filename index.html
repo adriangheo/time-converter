@@ -193,7 +193,7 @@
             <thead>
                 <tr>
                     <th class="headerbox" colspan="3">
-                        <p class="tz-bold"><span class="group-cls-name">Group A</span> x starting date: <span class="usr-strt-date">x March 10th</span></div>
+                        <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="usr-strt-date">x March 10th</span></div>
     </th>
     </tr>
     </thead>
@@ -377,7 +377,7 @@
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
-        let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy -");
+        let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy");
         console.log('dt1EndNYFullDate');
         console.log(dt1EndNYFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
@@ -414,14 +414,14 @@
 
 
         // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
-        let dt1StartUsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        let dt1StartUsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy"); //former format toFormat("ccc, LLL dd yyyy")
         console.log('dt1StartUsrFullDate');
         console.log(dt1StartUsrFullDate);
         // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
 
 
         // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
-        let dt1EndUsrFullDate = "" + dt1HourEndUsrTz.toFormat("ccc, LLL dd yyyy -- HH:mm");
+        let dt1EndUsrFullDate = "" + dt1HourEndUsrTz.toFormat("ccc, LLL dd yyyy");
         console.log('dt1EndUsrFullDate');
         console.log(dt1EndUsrFullDate);
         // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
@@ -488,9 +488,18 @@
         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
 
-        //replace course hours start and hour end for user time
+        //replace course hours start and hour end for New York time
         jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
         jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
+
+
+        //replace course date start and date end for User Time
+        jQuery('.usrt-row .date-of-start').text(dt1StartUsrFullDate);
+        jQuery('.usrt-row .date-of-end').text(dt1EndUsrFullDate);
+
+
+        jQuery('.nyt-row .date-of-start').text(dt1StartNYFullDate);
+        jQuery('.nyt-row .date-of-end').text(dt1EndNYFullDate);
 
 
         // object.addEventListener("click", myswitchbtn());
