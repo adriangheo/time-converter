@@ -365,6 +365,7 @@
         // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
         // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
         let dtLocalZoneNY = dt1StartNY.toFormat("ZZZZZ");
+        let dtLocalZoneShortNY = dt1StartNY.toFormat("ZZZZ");
         // ↑↑↑ variables partaining to America/New_York dates and times
 
 
@@ -504,6 +505,10 @@
 
         //replace timezone name for New York Timezone (necesary due to Daylight vs non-Daylight variance)
         jQuery('.ny-timezone').text(dtLocalZoneNY);
+
+        //replace timezone name for New York Timezone (the short one, with bold)
+        jQuery('.new-york-tz-short').text(dtLocalZoneShortNY);
+
 
 
 
