@@ -53,8 +53,8 @@
             font-weight: 600;
         }
         
-        .chosen-timezone.tz-details,
-        .user-cls-time.tz-details,
+        .ny-timezone.tz-details,
+        .user-timezone.tz-details,
         .show-date {
             font-size: 11px;
             color: #888 !important;
@@ -161,7 +161,7 @@
         <div class="leftbox boxbox">
             <div><span class="tz-bold minwidth tz-usrt-1">Your time </span><span class="minwidth tz-usrt-2 day-of-week">Sun & Wed</span> <span class="user-cls-hour tz-bold"> <span class='nowrp start-hr'>-:-- PM</span> - <span class='nowrp end-hr'>-:-- PM</span></span>
             </div>
-            <div><span class="user-cls-time tz-details">Eastern Standard Time</span> <span class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
+            <div><span class="user-timezone tz-details">Eastern Standard Time</span> <span class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
             </div>
         </div>
     </div>
@@ -169,7 +169,7 @@
         <div class="leftbox boxbox">
             <div><span class="minwidth tz-nyt-1"><span class="tz-bold ">EST </span><span class="tz-details">(New York)</span></span> <span class="minwidth tz-nyt-2 day-of-week">Sun & Wed</span> <span class="chosen-hour tz-bold"> <span class='nowrp start-hr'>-:-- AM</span>                - <span class='nowrp end-hr'>-:-- AM</span></span>
             </div>
-            <div><span class="chosen-timezone tz-details">America/New_York</span> <span class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
+            <div><span class="ny-timezone tz-details">America/New_York</span> <span class="tz-details full-date"><span class='nowrp date-of-start'>Sun, Mar 6 2022</span> - <span class='nowrp date-of-end'>Sun, Mar 6 2022</span></span>
             </div>
         </div>
     </div>
@@ -200,7 +200,7 @@
     <tbody>
         <tr class="conv-row usrt-row">
             <td class="conv-cell">
-                <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-cls-time tz-details"> x Eastern Standard Time</span></div>
+                <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
             </td>
             <td class="conv-cell">
                 <div> <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-1st">x Wed</span></span>
@@ -215,7 +215,7 @@
         </tr>
         <tr class="conv-row nyt-row">
             <td class="conv-cell">
-                <div><span class="minwidth tz-nyt-1"><span class="tz-bold">EST </span><span class="tz-details">(New York)</span></span><span class="chosen-timezone tz-details">x America/New_York</span></div>
+                <div><span class="minwidth tz-nyt-1"><span class="tz-bold">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
             </td>
             <td class="conv-cell">
                 <p class="minwidth tz-nyt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-1st">x Wed</span></div>
@@ -440,7 +440,7 @@
 
 
         // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
-        // jQuery(this).find('.user-cls-time').text(dtLocalUsrTz);
+        // jQuery(this).find('.user-timezone').text(dtLocalUsrTz);
         // jQuery(this).find('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
         // jQuery(this).find('.user-cls-hour .end-hr').text(dt1HourEndUsrTzString24h);
         // jQuery(this).find('.user-tz .date-of-start').text(dt1StartUsrFullDate);
@@ -451,7 +451,7 @@
 
 
         // jQuery(this).find('.user-tz .day-of-week').text("" + dt1StartUsrTzWeekday + " & " + dt2StartUsrTzWeekday);
-        jQuery('.user-cls-time').text(dtLocalUsrTz);
+        jQuery('.user-timezone').text(dtLocalUsrTz);
         jQuery('.user-tz .date-of-start').text(dt1StartUsrFullDate);
         jQuery('.user-tz .date-of-end').text(dt1EndUsrFullDate);
         // jQuery('.user-cls-hour .start-hr').text(dt1HourStartUsrTz24h);
@@ -469,7 +469,7 @@
 
 
 
-        jQuery('.chosen-timezone').text("" + dtLocalZoneNY);
+        jQuery('.ny-timezone').text("" + dtLocalZoneNY);
         jQuery('.new-york-tz .date-of-start').text(dt1StartNYFullDate);
         jQuery('.new-york-tz .date-of-end').text(dt1EndNYFullDate);
         jQuery('.new-york-tz .start-hr').text(dt1HourStartNY24h);
@@ -497,9 +497,12 @@
         jQuery('.usrt-row .date-of-start').text(dt1StartUsrFullDate);
         jQuery('.usrt-row .date-of-end').text(dt1EndUsrFullDate);
 
-
+        //replace course date start and date end for New York Time
         jQuery('.nyt-row .date-of-start').text(dt1StartNYFullDate);
         jQuery('.nyt-row .date-of-end').text(dt1EndNYFullDate);
+
+
+
 
 
         // object.addEventListener("click", myswitchbtn());
