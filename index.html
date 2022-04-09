@@ -478,12 +478,89 @@
                         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
                         jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
                         jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
+                        if (luxon.DateTime.now().plus({
+                                hours: 24
+                            }) > dt1HourEndUsrTz) {
+                            // jQuery(this).find(".time-conv *").css('color', 'red');
+                            jQuery(this).find(".headerbox *").remove()
+                            jQuery(this).find(".headerbox ").append("To be announced")
+                                //replace 1st and 2nd day of the week
+                            jQuery(this).find('.day-1st').text("-----");
+                            jQuery(this).find('.day-2nd').text("-----");
+
+                            //replace 1st and 2nd day of the week
+                            jQuery(this).find('.nyt-row .day-1st').text("-----");
+                            jQuery(this).find('.nyt-row .day-2nd').text("-----");
+
+
+                            //replace course hours start and hour end for user time
+                            jQuery(this).find('.usrt-row .start-hr').text("-----");
+                            jQuery(this).find('.usrt-row .end-hr').text("-----");
+
+
+                            //replace course hours start and hour end for New York time
+                            jQuery(this).find('.nyt-row .start-hr').text("-----");
+                            jQuery(this).find('.nyt-row .end-hr').text("-----");
+
+
+                            //replace course date start and date end for User Time
+                            jQuery(this).find('.usrt-row .date-of-start').text("-----");
+                            jQuery(this).find('.usrt-row .date-of-end').text("-----");
+
+                            //replace course date start and date end for New York Time
+                            jQuery(this).find('.nyt-row .date-of-start').text("-----");
+                            jQuery(this).find('.nyt-row .date-of-end').text("-----");
+
+
+
+
+                            //replace course date start and date end for New York Time
+                            jQuery(this).find('.tz-usrt-3').text("-----");
+                            jQuery(this).find('.tz-usrt-4').text("-----");
+                        }
                     } else {
                         jQuery(".conv-but").text("AM/PM")
                         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
                         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
                         jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
                         jQuery('.nyt-row .end-hr').text(dtHourEndNYAmPm);
+                        if (luxon.DateTime.now().plus({ hours: 24 }) > dt1HourEndUsrTz) {
+                            // jQuery(this).find(".time-conv *").css('color', 'red');
+                            jQuery(this).find(".headerbox *").remove()
+                            jQuery(this).find(".headerbox ").append("To be announced")
+                                //replace 1st and 2nd day of the week
+                            jQuery(this).find('.day-1st').text("-----");
+                            jQuery(this).find('.day-2nd').text("-----");
+
+                            //replace 1st and 2nd day of the week
+                            jQuery(this).find('.nyt-row .day-1st').text("-----");
+                            jQuery(this).find('.nyt-row .day-2nd').text("-----");
+
+
+                            //replace course hours start and hour end for user time
+                            jQuery(this).find('.usrt-row .start-hr').text("-----");
+                            jQuery(this).find('.usrt-row .end-hr').text("-----");
+
+
+                            //replace course hours start and hour end for New York time
+                            jQuery(this).find('.nyt-row .start-hr').text("-----");
+                            jQuery(this).find('.nyt-row .end-hr').text("-----");
+
+
+                            //replace course date start and date end for User Time
+                            jQuery(this).find('.usrt-row .date-of-start').text("-----");
+                            jQuery(this).find('.usrt-row .date-of-end').text("-----");
+
+                            //replace course date start and date end for New York Time
+                            jQuery(this).find('.nyt-row .date-of-start').text("-----");
+                            jQuery(this).find('.nyt-row .date-of-end').text("-----");
+
+
+
+                            //replace course date start and date end for New York Time
+                            jQuery(this).find('.tz-usrt-3').text("-----");
+                            jQuery(this).find('.tz-usrt-4').text("-----");
+                        }
                     }
                     console.log("hhh")
                 });
@@ -513,11 +590,13 @@
                 }
 
 
-                if(luxon.DateTime.now().plus({ hours: 24 }) > dt1HourEndUsrTz ){
+                if (luxon.DateTime.now().plus({
+                        hours: 24
+                    }) > dt1HourEndUsrTz) {
                     // jQuery(this).find(".time-conv *").css('color', 'red');
                     jQuery(this).find(".headerbox *").remove()
                     jQuery(this).find(".headerbox ").append("To be announced")
-                                    //replace 1st and 2nd day of the week
+                        //replace 1st and 2nd day of the week
                     jQuery(this).find('.day-1st').text("-----");
                     jQuery(this).find('.day-2nd').text("-----");
 
@@ -544,7 +623,7 @@
                     jQuery(this).find('.nyt-row .date-of-start').text("-----");
                     jQuery(this).find('.nyt-row .date-of-end').text("-----");
                 }
-                
+
             });
         });
     </script>
