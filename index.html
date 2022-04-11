@@ -149,7 +149,7 @@
     <!-- START OF MODULE 1 -->
     <div class="timeconvertorparent">
         <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
-        <div class="date-and-time-of-first-course">17-Mar-2022 19:00</div>
+        <div class="date-and-time-of-first-course">17-Mar-2022 12:30</div>
         <div class="date-of-second-course">20-Mar-2022</div>
         <div class="total-course-minutes">60</div>
 
@@ -366,10 +366,12 @@
                 // ↓↓↓ variables partaining to America/New_York dates and times
                 // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
                 let dt1HourStartNY24h = dt1StartNY.toFormat('H:mm');
-                let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
+                // let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
+                let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm');
 
                 let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
-                let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
+                // let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
+                let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm');
 
                 // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
                 // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -394,10 +396,13 @@
 
                 // ↓↓↓ variables partaining to UserTimeZone hours and minutes
                 let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('H:mm');
-                let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
+                // let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
+                let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm');
+
 
                 let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
-                let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
+                // let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
+                let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm');
                 // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
 
