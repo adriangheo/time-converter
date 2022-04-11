@@ -254,8 +254,10 @@
 
 
     <script>
-        //un array de obiecte JS
-
+        let arraydt1HourStartUsrTz24h = [];
+        let arraydt1HourEndUsrTzString24h = [];
+        let arraydt1HourStartNY24h = [];
+        let arraydtHourEndNY24h = [];
 
         jQuery(document).ready(function() {
             jQuery('.timeconvertorparent').each(function() {
@@ -372,10 +374,12 @@
                 // ↓↓↓ variables partaining to America/New_York dates and times
                 // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
                 let dt1HourStartNY24h = dt1StartNY.toFormat('H:mm');
+                arraydt1HourStartNY24h.push(dt1HourStartNY24h)
                 // let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
                 let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm');
 
                 let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
+                arraydtHourEndNY24h.push(dtHourEndNY24h)
                 // let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
                 let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm');
 
@@ -402,11 +406,13 @@
 
                 // ↓↓↓ variables partaining to UserTimeZone hours and minutes
                 let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('H:mm');
+                arraydt1HourStartUsrTz24h.push(dt1HourStartUsrTz24h)
                 // let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
                 let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm');
 
 
                 let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
+                arraydt1HourEndUsrTzString24h.push(dt1HourEndUsrTzString24h)
                 // let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
                 let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm');
                 // ↑↑↑ variables partaining to UserTimeZone hours and minutes
@@ -476,36 +482,20 @@
                 //replace timezone name for New York Timezone (the short one, with bold)
                 jQuery(this).find('.new-york-tz-short').text(dtLocalZoneShortNY);
 
-                //very interesting... you can call this funciton from the global scope by 
-                //simply calling showMessage()
-                window.showMessage = function() {
-                    console.log("wow");
-                };
-                
 
 
-                var is24h = jQuery(".conv-but").text().includes("24h");
                 //functionality for btn 24h to am-pm
-                function switchAmPmAnd24h() {
-                    var is24h = jQuery(".conv-but").text().includes("24h");
-                    if (is24h) {
+                jQuery(this).find(".conv-but").on('click', function() {
+                    jQuery(".conv-but").dblclick();
+                });
+
+
+                jQuery(".conv-but").on("dblclick", function(e) {
                         jQuery(".conv-but").text("AM/PM")
                         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
                         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
                         jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
                         jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
-                    } else {
-                        jQuery(".conv-but").text("24h")
-                        jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
-                        jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
-                        jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
-                        jQuery('.nyt-row .end-hr').text(dtHourEndNYAmPm);
-                    }
-                }
-
-                jQuery(".conv-but").on('click', function() {
-                    var myBtn = jQuery(this);
-
                 });
 
 
