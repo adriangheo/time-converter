@@ -149,17 +149,16 @@
     <!-- START OF MODULE 1 -->
     <div class="timeconvertorparent">
         <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
-        <div class="date-and-time-of-first-course">02-Apr-2022 21:00</div>
-        <div class="date-of-second-course">03-Apr-2022</div>
+        <div class="date-and-time-of-first-course">17-Mar-2022 19:00</div>
+        <div class="date-of-second-course">20-Mar-2022</div>
         <div class="total-course-minutes">60</div>
 
         <table class=time-conv>
             <thead>
                 <tr>
                     <th class="headerbox" colspan="2">
-                        <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span>
-    </div>
-    </th>
+                        <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span><span class="to-be-announced"></span></div>
+                        </th>
     </tr>
     </thead>
     <tbody>
@@ -168,7 +167,7 @@
                 <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
             </td>
             <td class="conv-cell">
-                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 >PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
                     </span>
                     </div>
             </td>
@@ -203,16 +202,15 @@
     <!--  START OF MODULE 2 -->
     <div class="timeconvertorparent">
         <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
-        <div class="date-and-time-of-first-course">21-Apr-2022 21:00</div>
-        <div class="date-of-second-course">24-Apr-2022</div>
+        <div class="date-and-time-of-first-course">17-Apr-2022 19:00</div>
+        <div class="date-of-second-course">21-Apr-2022</div>
         <div class="total-course-minutes">60</div>
 
         <table class=time-conv>
             <thead>
                 <tr>
                     <th class="headerbox" colspan="2">
-                        <p class="tz-bold"><span class="group-cls-name">Group A</span> starting date: <span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span>
-    </div>
+                        <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span></div>
     </th>
     </tr>
     </thead>
@@ -222,7 +220,7 @@
                 <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
             </td>
             <td class="conv-cell">
-                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 >PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
                     </span>
                     </div>
             </td>
@@ -249,6 +247,7 @@
     </div>
     <!--  END OF MODULE 2  -->
     <!-- -------------------------- -->
+
 
 
     <script>
@@ -443,12 +442,12 @@
 
 
                 //replace course hours start and hour end for user time
-                jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
-                jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
+                jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
+                jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
 
                 //replace course hours start and hour end for New York time
-                jQuery(this).find('.nyt-row .start-hr').text(dt1HourStartNY24h);
-                jQuery(this).find('.nyt-row .end-hr').text(dtHourEndNY24h);
+                jQuery(this).find('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
+                jQuery(this).find('.nyt-row .end-hr').text(dtHourEndNYAmPm);
 
 
                 //replace course date start and date end for User Time
@@ -471,15 +470,15 @@
                 //functionality for btn 24h to am-pm
                 jQuery(this).find(".conv-but").on('click', function() {
                     var myBtn = jQuery(this);
-                    if (myBtn.text() === "AM/PM") {
+                    if (myBtn.text().includes("24h")) {
                         // myBtn.text("24h")
-                        jQuery(".conv-but").text("24h")
+                        jQuery(".conv-but").text("AM/PM")
                         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
                         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
                         jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
                         jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
                     } else {
-                        jQuery(".conv-but").text("AM/PM")
+                        jQuery(".conv-but").text("24h")
                         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
                         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
                         jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
@@ -513,42 +512,16 @@
                 }
 
 
+                //the code bellow handles the case where the course has already started 24 hours ago
                 if(luxon.DateTime.now().plus({ hours: 24 }) > dt1HourEndUsrTz ){
                     // jQuery(this).find(".time-conv *").css('color', 'red');
-                    jQuery(this).find(".headerbox *").remove()
-                    jQuery(this).find(".headerbox ").append("To be announced")
-                                    //replace 1st and 2nd day of the week
-                    jQuery(this).find('.day-1st').text("-----");
-                    jQuery(this).find('.day-2nd').text("-----");
-
-                    //replace 1st and 2nd day of the week
-                    jQuery(this).find('.nyt-row .day-1st').text("-----");
-                    jQuery(this).find('.nyt-row .day-2nd').text("-----");
-
-
-                    //replace course hours start and hour end for user time
-                    jQuery(this).find('.usrt-row .start-hr').text("-----");
-                    jQuery(this).find('.usrt-row .end-hr').text("-----");
-
-
-                    //replace course hours start and hour end for New York time
-                    jQuery(this).find('.nyt-row .start-hr').text("-----");
-                    jQuery(this).find('.nyt-row .end-hr').text("-----");
-
-
-                    //replace course date start and date end for User Time
-                    jQuery(this).find('.usrt-row .date-of-start').text("-----");
-                    jQuery(this).find('.usrt-row .date-of-end').text("-----");
-
-                    //replace course date start and date end for New York Time
-                    jQuery(this).find('.nyt-row .date-of-start').text("-----");
-                    jQuery(this).find('.nyt-row .date-of-end').text("-----");
+                    jQuery(this).find(".to-be-announced").append("To be announced");
+                    jQuery(this).find(".cont-usr-strtdt").remove();
                 }
                 
             });
         });
     </script>
-
 
 </body>
 
