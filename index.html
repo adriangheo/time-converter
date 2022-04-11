@@ -534,6 +534,14 @@
 
             });
         });
+
+        let allNyStartHr = document.querySelectorAll(".nyt-row .start-hr");
+
+        function change(){
+            for(let i = 0; i < allNyStartHr.length; i++){
+                jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
+            }
+        }
     </script>
 
 
