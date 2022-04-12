@@ -168,7 +168,7 @@
                 <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
             </td>
             <td class="conv-cell">
-                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 </span><span class="am-pm"> xPM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 </span><span class="am-pm"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 </span><span class="am-pm am-pm-start-hr"> xPM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 </span><span class="am-pm am-pm-end-hr"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
                     </span>
                     </div>
             </td>
@@ -178,7 +178,7 @@
                 <div><span class="minwidth tz-nyt-1"><span class="tz-bold new-york-tz-short">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
             </td>
             <td class="conv-cell">
-                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 </span><span class="am-pm"> xPM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 </span><span class="am-pm"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 </span><span class="am-pm am-pm-start-hr"> xPM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 </span><span class="am-pm am-pm-end-hr"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
                     </span>
                     </div>
             </td>
@@ -223,7 +223,7 @@
                 <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
             </td>
             <td class="conv-cell">
-                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 </span><span class="am-pm"> xPM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 </span><span class="am-pm"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 </span><span class="am-pm am-pm-start-hr"> xPM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 </span><span class="am-pm am-pm-end-hr"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
                     </span>
                     </div>
             </td>
@@ -233,7 +233,7 @@
                 <div><span class="minwidth tz-nyt-1"><span class="tz-bold new-york-tz-short">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
             </td>
             <td class="conv-cell">
-                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 </span><span class="am-pm"> xPM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 </span><span class="am-pm"> PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 </span><span class="am-pm am-pm-start-hr"> xPM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 </span><span class="am-pm am-pm-end-hr"> xPM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
                     </span>
                     </div>
             </td>
@@ -263,6 +263,12 @@
         let arraydt1HourEndUsrTzString12h = [];
         let arraydt1HourStartNY12h = [];
         let arraydtHourEndNY12h = [];
+
+        let arraydt1HourStartUsrTzAmPm = [];
+        let arraydt1HourEndUsrTzStringAmPm = [];
+        let arraydt1HourStartNYAmPm = [];
+        let arraydtHourEndNYAmPm = [];
+
 
 
         jQuery(document).ready(function() {
@@ -383,13 +389,18 @@
                 arraydt1HourStartNY24h.push(dt1HourStartNY24h)
                 // let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm a');
                 let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm');
-                arraydt1HourStartNY12h.push(dt1HourStartNY12h)
+                arraydt1HourStartNY12h.push(dt1HourStartNY12h);
+                let dt1HourStartNYAmPm = dt1StartNY.toFormat('a');
+                arraydt1HourStartNYAmPm.push(dt1HourStartNYAmPm);
+
 
                 let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
                 arraydtHourEndNY24h.push(dtHourEndNY24h)
                 // let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm a');
                 let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm');
                 arraydtHourEndNY12h.push(dtHourEndNY12h)
+                let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('a');
+                arraydtHourEndNYAmPm.push(dtHourEndNYAmPm)                
 
                 // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
                 // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -417,7 +428,9 @@
                 arraydt1HourStartUsrTz24h.push(dt1HourStartUsrTz24h)
                 // let dt1HourStartUsrTz12h = dt1UsrTz.toFormat('h:mm a');
                 let dt1HourStartUsrTz12h = dt1UsrTz.toFormat('h:mm');
-                arraydt1HourStartUsrTz12h.push(dt1HourStartUsrTz12h)
+                arraydt1HourStartUsrTz12h.push(dt1HourStartUsrTz12h);
+                let dt1HourStartUsrTzAmPm = dt1HourEndNYobj.toFormat('a');
+                arraydt1HourStartUsrTzAmPm.push(dt1HourStartUsrTzAmPm) 
 
 
 
@@ -426,6 +439,8 @@
                 // let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm a');
                 let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm');
                 arraydt1HourEndUsrTzString12h.push(dt1HourEndUsrTzString12h)
+                let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('a');
+                arraydt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)            
 
                 // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
@@ -556,7 +571,7 @@
         }
                 
         function changeTo24h(){
-            jQuery(".am-pm").empty();
+            jQuery(".am-pm").text("");
 
             for(let i = 0; i < allNyStartHr.length; i++){
                 jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz24h[i]);
@@ -564,12 +579,13 @@
                 jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
                 jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNY24h[i]);
 
+                
 
             }
         }
 
         function changeToAmPm(){
-            jQuery(".am-pm").append(" xPM");
+            // jQuery(".am-pm").append(" xPM");
 
             for(let i = 0; i < allNyStartHr.length; i++){
                 jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz12h[i]);
@@ -577,7 +593,12 @@
                 jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY12h[i]);
                 jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNY12h[i]);
 
+                jQuery(".usrt-row .am-pm-start-hr").eq(i).append(arraydt1HourStartUsrTzAmPm[i]);
+                jQuery(".usrt-row .am-pm-end-hr").eq(i).append(arraydt1HourEndUsrTzStringAmPm[i]);
+                jQuery(".nyt-row .am-pm-start-hr").eq(i).append(arraydt1HourStartNYAmPm[i]);
+                jQuery(".nyt-row .am-pm-end-hr").eq(i).append(arraydtHourEndNYAmPm[i]);
 
+                
             }
         }
 
