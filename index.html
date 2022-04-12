@@ -539,7 +539,11 @@
 
         function change(){
             for(let i = 0; i < allNyStartHr.length; i++){
+                jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz24h[i]);
+                jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzString24h[i]);
                 jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
+                jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNY24h[i]);
+
             }
         }
     </script>
