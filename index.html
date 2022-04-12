@@ -157,9 +157,8 @@
             <thead>
                 <tr>
                     <th class="headerbox" colspan="2">
-                        <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span>
-                            </span><span class="to-be-announced"></span></div>
-    </th>
+                        <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span><span class="to-be-announced"></span></div>
+                        </th>
     </tr>
     </thead>
     <tbody>
@@ -211,9 +210,7 @@
             <thead>
                 <tr>
                     <th class="headerbox" colspan="2">
-                        <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span>
-                            </span>
-    </div>
+                        <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span></div>
     </th>
     </tr>
     </thead>
@@ -254,9 +251,6 @@
 
 
     <script>
-        //un array de obiecte JS
-
-
         jQuery(document).ready(function() {
             jQuery('.timeconvertorparent').each(function() {
 
@@ -476,19 +470,13 @@
                 //replace timezone name for New York Timezone (the short one, with bold)
                 jQuery(this).find('.new-york-tz-short').text(dtLocalZoneShortNY);
 
-                //very interesting... you can call this funciton from the global scope by 
-                //simply calling showMessage()
-                window.showMessage = function() {
-                    console.log("wow");
-                };
-                
 
 
-                var is24h = jQuery(".conv-but").text().includes("24h");
                 //functionality for btn 24h to am-pm
-                function switchAmPmAnd24h() {
-                    var is24h = jQuery(".conv-but").text().includes("24h");
-                    if (is24h) {
+                jQuery(this).find(".conv-but").on('click', function() {
+                    var myBtn = jQuery(this);
+                    if (myBtn.text().includes("24h")) {
+                        // myBtn.text("24h")
                         jQuery(".conv-but").text("AM/PM")
                         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
                         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
@@ -501,11 +489,7 @@
                         jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
                         jQuery('.nyt-row .end-hr').text(dtHourEndNYAmPm);
                     }
-                }
-
-                jQuery(".conv-but").on('click', function() {
-                    var myBtn = jQuery(this);
-
+                    console.log("hhh")
                 });
 
 
@@ -534,14 +518,12 @@
 
 
                 //the code bellow handles the case where the course has already started 24 hours ago
-                if (luxon.DateTime.now().plus({
-                        hours: 24
-                    }) > dt1HourEndUsrTz) {
+                if(luxon.DateTime.now().plus({ hours: 24 }) > dt1HourEndUsrTz ){
                     // jQuery(this).find(".time-conv *").css('color', 'red');
                     jQuery(this).find(".to-be-announced").append("To be announced");
                     jQuery(this).find(".cont-usr-strtdt").remove();
                 }
-
+                
             });
         });
     </script>
