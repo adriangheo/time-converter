@@ -259,10 +259,10 @@
         let arraydt1HourStartNY24h = [];
         let arraydtHourEndNY24h = [];
 
-        let arraydt1HourStartUsrTzAmPm = [];
-        let arraydt1HourEndUsrTzStringAmPm = [];
-        let arraydt1HourStartNYAmPm = [];
-        let arraydtHourEndNYAmPm = [];
+        let arraydt1HourStartUsrTz12h = [];
+        let arraydt1HourEndUsrTzString12h = [];
+        let arraydt1HourStartNY12h = [];
+        let arraydtHourEndNY12h = [];
 
 
         jQuery(document).ready(function() {
@@ -381,15 +381,15 @@
                 // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
                 let dt1HourStartNY24h = dt1StartNY.toFormat('H:mm');
                 arraydt1HourStartNY24h.push(dt1HourStartNY24h)
-                // let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
-                let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm');
-                arraydt1HourStartNYAmPm.push(dt1HourStartNYAmPm)
+                // let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm a');
+                let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm');
+                arraydt1HourStartNY12h.push(dt1HourStartNY12h)
 
                 let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
                 arraydtHourEndNY24h.push(dtHourEndNY24h)
-                // let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
-                let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm');
-                arraydtHourEndNYAmPm.push(dtHourEndNYAmPm)
+                // let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm a');
+                let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm');
+                arraydtHourEndNY12h.push(dtHourEndNY12h)
 
                 // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
                 // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -415,17 +415,17 @@
                 // ↓↓↓ variables partaining to UserTimeZone hours and minutes
                 let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('H:mm');
                 arraydt1HourStartUsrTz24h.push(dt1HourStartUsrTz24h)
-                // let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
-                let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm');
-                arraydt1HourStartUsrTzAmPm.push(dt1HourStartUsrTzAmPm)
+                // let dt1HourStartUsrTz12h = dt1UsrTz.toFormat('h:mm a');
+                let dt1HourStartUsrTz12h = dt1UsrTz.toFormat('h:mm');
+                arraydt1HourStartUsrTz12h.push(dt1HourStartUsrTz12h)
 
 
 
                 let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
                 arraydt1HourEndUsrTzString24h.push(dt1HourEndUsrTzString24h)
-                // let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
-                let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm');
-                arraydt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)
+                // let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm a');
+                let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm');
+                arraydt1HourEndUsrTzString12h.push(dt1HourEndUsrTzString12h)
 
                 // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
@@ -471,12 +471,12 @@
 
 
                 //replace course hours start and hour end for user time
-                jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
-                jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
+                jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTz12h);
+                jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzString12h);
 
                 //replace course hours start and hour end for New York time
-                jQuery(this).find('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
-                jQuery(this).find('.nyt-row .end-hr').text(dtHourEndNYAmPm);
+                jQuery(this).find('.nyt-row .start-hr').text(dt1HourStartNY12h);
+                jQuery(this).find('.nyt-row .end-hr').text(dtHourEndNY12h);
 
 
                 //replace course date start and date end for User Time
@@ -572,10 +572,10 @@
             jQuery(".am-pm").append(" xPM");
 
             for(let i = 0; i < allNyStartHr.length; i++){
-                jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTzAmPm[i]);
-                jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzStringAmPm[i]);
-                jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNYAmPm[i]);
-                jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNYAmPm[i]);
+                jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz12h[i]);
+                jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzString12h[i]);
+                jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY12h[i]);
+                jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNY12h[i]);
 
 
             }
