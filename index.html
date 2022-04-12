@@ -701,9 +701,11 @@
             jQuery(this).on("click", function(){
                 let x = jQuery(this).next().find(">:first-child");
                 if (x.text() === "24h") {
-                    x.text("am/pm");
+                    jQuery(".switch-btn .light-text").text("am/pm");
+                    changeTo24h();
                 } else {
-                    x.text("24h");
+                    jQuery(".switch-btn .light-text").text("24h");
+                    changeToAmPm();
                 }
             });
         });
