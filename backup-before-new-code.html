@@ -1,0 +1,500 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
+
+
+<style>
+    .day-of-week {
+        display: inline !important;
+    }
+      
+    .date-and-time-of-first-course,
+    .date-of-second-course,
+    .total-course-minutes{
+        display: none;
+    }
+      
+    .time-conv {
+        border: 1px solid #eaeaea;
+        background: #fcfcfc;
+    }
+    
+    .tz-usrt-1,
+    .tz-usrt-2,
+    .tz-nyt-1,
+    .tz-nyt-2 {
+        display: block;
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    
+    .tz-usrt-3,
+    .tz-usrt-4,
+    .tz-nyt-3,
+    .tz-nyt-4 {
+        white-space: nowrap;
+        font-size: 15px;
+        font-weight: 700;
+    }
+    
+    .group-cls-name {
+        color: #00b189 !important;
+    }
+    
+    th.headerbox {
+        font-size: 15px;
+        background: #fff;
+    }
+    
+    .headerbox .tz-bold {
+        text-align: left;
+    }
+    
+    .tz-bold {
+        font-weight: 600;
+    }
+    
+    .chosen-timezone.tz-details,
+    .user-cls-time.tz-details,
+    .show-date {
+        font-size: 11px;
+        color: #888 !important;
+        font-weight: 600;
+    }
+    
+    .show-time,
+    .show-date {
+        white-space: nowrap !important;
+        display: block;
+    }
+    
+    .conv-but {
+        display: inline;
+        float: right;
+        background: #00b189 !important;
+        padding: 8px !important;
+        border-radius: 20px !important;
+        color: #fff !important;
+        font-weight: 800;
+    }
+    
+    .conv-but:hover {
+        background: #ff5859 !important;
+    }
+    </style>
+
+
+
+<div class="timeconvertorparent">
+    <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
+    <div class="date-and-time-of-first-course">17-Mar-2022 19:00</div>
+    <div class="date-of-second-course">20-Mar-2022</div>
+    <div class="total-course-minutes">60</div>
+
+    <table class=time-conv>
+        <thead>
+            <tr>
+                <th class="headerbox" colspan="2">
+                    <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span><span class="to-be-announced"></span></div>
+                    </th>
+</tr>
+</thead>
+<tbody>
+    <tr class="conv-row usrt-row">
+        <td class="conv-cell">
+            <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
+        </td>
+        <td class="conv-cell">
+            <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                </span>
+                </div>
+        </td>
+    </tr>
+    <tr class="conv-row nyt-row">
+        <td class="conv-cell">
+            <div><span class="minwidth tz-nyt-1"><span class="tz-bold new-york-tz-short">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
+        </td>
+        <td class="conv-cell">
+            <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                </span>
+                </div>
+        </td>
+    </tr>
+    <tr class="conv-row">
+        <td class="conv-cell" colspan=3>
+            <div class="conv-but">
+                24h
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+
+
+<div class="timeconvertorparent">
+    <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
+    <div class="date-and-time-of-first-course">17-Mar-2022 19:00</div>
+    <div class="date-of-second-course">20-Mar-2022</div>
+    <div class="total-course-minutes">60</div>
+
+    <table class=time-conv>
+        <thead>
+            <tr>
+                <th class="headerbox" colspan="2">
+                    <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span><span class="to-be-announced"></span></div>
+                    </th>
+</tr>
+</thead>
+<tbody>
+    <tr class="conv-row usrt-row">
+        <td class="conv-cell">
+            <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
+        </td>
+        <td class="conv-cell">
+            <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                </span>
+                </div>
+        </td>
+    </tr>
+    <tr class="conv-row nyt-row">
+        <td class="conv-cell">
+            <div><span class="minwidth tz-nyt-1"><span class="tz-bold new-york-tz-short">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
+        </td>
+        <td class="conv-cell">
+            <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                </span>
+                </div>
+        </td>
+    </tr>
+    <tr class="conv-row">
+        <td class="conv-cell" colspan=3>
+            <div class="conv-but">
+                24h
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+
+<div class="timeconvertorparent">
+    <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
+    <div class="date-and-time-of-first-course">17-Apr-2022 19:00</div>
+    <div class="date-of-second-course">21-Apr-2022</div>
+    <div class="total-course-minutes">60</div>
+
+    <table class=time-conv>
+        <thead>
+            <tr>
+                <th class="headerbox" colspan="2">
+                    <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> & <span class="day-2nd">x Wed</span></span></span></div>
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr class="conv-row usrt-row">
+        <td class="conv-cell">
+            <div> <span class="minwidth tz-usrt-1 tz-bold">Your time</span><span class="user-timezone tz-details"> x Eastern Standard Time</span></div>
+        </td>
+        <td class="conv-cell">
+            <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-usrt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-usrt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                </span>
+                </div>
+        </td>
+    </tr>
+    <tr class="conv-row nyt-row">
+        <td class="conv-cell">
+            <div><span class="minwidth tz-nyt-1"><span class="tz-bold new-york-tz-short">EST </span><span class="tz-details">(New York)</span></span><span class="ny-timezone tz-details">x America/New_York</span></div>
+        </td>
+        <td class="conv-cell">
+            <p class="tz-bold"><span class=show-time><span class='nowrp start-hr tz-nyt-3'>x 5:00 PM</span> - <span class='nowrp end-hr tz-nyt-4'>x 6:00 PM</span></span><span class=show-date><span class='nowrp date-of-start'>x Sun, Mar 6 2022</span>
+                </span>
+                </div>
+        </td>
+    </tr>
+    <tr class="conv-row">
+        <td class="conv-cell" colspan=3>
+            <div class="conv-but">
+                24h
+            </div>
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
+
+
+<script>
+    jQuery(document).ready(function() {
+        jQuery('.timeconvertorparent').each(function() {
+
+            //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy hh:mm" (eg. if day is smaller than 10 add 0 in front) 
+            var date_and_time_of_first_course = jQuery(this).find('.date-and-time-of-first-course').text();
+            // var date_and_time_of_first_course = "20-Jun-2022 23:30";
+
+
+
+            //VERY IMPORTANT - keep EXACTLY this format "dd-mmm-yyyy" 
+            var date_of_second_course = jQuery(this).find('.date-of-second-course').text();
+            // var date_of_second_course = "22-Jun-2022";
+            var total_course_minutes = jQuery(this).find('.total-course-minutes').text();
+            // var total_course_minutes = 150;
+
+            function getMonthFromString(mon) {
+                return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
+            }
+
+
+            var day_1st = 'Sun';
+            var day_2nd = 'Wed';
+            var myMonth = getMonthFromString(date_and_time_of_first_course.substring(3, 6));
+            var cDay1st = date_and_time_of_first_course.substring(0, 2);
+            var cHour = date_and_time_of_first_course.substring(12, 14);
+            var cMinute = date_and_time_of_first_course.substring(15, 17)
+
+
+            // ↓↓↓  Bellow are 3 very important Luxon objects, partaining to NewYork time ↓↓↓ 
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+            // 1. -----------------------------------------------------------------------------------------------------------------------------------
+            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
+            let dt1StartNY = luxon.DateTime.fromObject({
+                month: myMonth,
+                day: cDay1st,
+                hour: cHour,
+                minute: cMinute
+            }, {
+                zone: 'America/New_York'
+            });
+            // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+            // 2. -----------------------------------------------------------------------------------------------------------------------------------
+            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+            let dt1HourEndNYobj = dt1StartNY.plus({
+                minutes: total_course_minutes
+            });
+            // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+            // 3.-----------------------------------------------------------------------------------------------------------------------------------
+            // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
+            let dt2StartNY = dt1StartNY.set({
+                day: date_of_second_course.substring(0, 2),
+                month: getMonthFromString(date_of_second_course.substring(3, 6))
+            });
+            // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+            // ↓↓↓  Bellow are 3 very important Luxon objects, partaining to User time ↓↓↓ 
+            //-----------------------------------------------------------------------------------------------------------------------------------
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+            // 1.-----------------------------------------------------------------------------------------------------------------------------------
+            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+            let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
+            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+            // 2.-----------------------------------------------------------------------------------------------------------------------------------
+            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+            let dt1HourEndUsrTz = dt1UsrTz.plus({
+                minutes: total_course_minutes
+            });
+            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+            // 3. -----------------------------------------------------------------------------------------------------------------------------------
+            // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
+            // ↓↓↓ get date difernce in days between 1st and 2nd day of course
+            let diff = dt2StartNY.diff(dt1StartNY, ["days"]);
+            let diffInDays = diff.days;
+            // ↑↑↑get date difernce in days between 1st and 2nd day of course00
+
+
+            let dt2StartUsrTz = dt1UsrTz.plus({
+                days: diffInDays
+            });
+            // ↑↑↑  LuxonJs Object, set to date and time of 2nd day's course  (in User time), calculated at the precise hour and minute it BEGINS
+            //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+            // ↓↓↓ get days of the week for 1st and 2nd day of course (New York Time)
+            let dt1StartNYweekday = dt1StartNY.weekdayShort;
+
+            let dt2StartNYweekday = dt2StartNY.weekdayShort;
+            // ↑↑↑  get days of the week for 1st and 2nd day of course (New York Time)
+
+
+            // ↓↓↓ variables partaining to America/New_York dates and times
+            // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
+            let dt1HourStartNY24h = dt1StartNY.toFormat('H:mm');
+            let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
+
+            let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
+            let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
+
+            // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
+            // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
+            let dtLocalZoneNY = dt1StartNY.toFormat("ZZZZZ");
+            let dtLocalZoneShortNY = dt1StartNY.toFormat("ZZZZ");
+            // ↑↑↑ variables partaining to America/New_York dates and times
+
+            // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
+            let dt1StartNYFullDate = "" + dt1StartNY.toFormat("ccc, LLL dd yyyy");
+            // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
+
+
+            // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
+            let dt1EndNYFullDate = "" + dt1HourEndNYobj.toFormat("ccc, LLL dd yyyy");
+            // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
+
+
+            // ↓↓↓ variables partaining to UserTimeZone dates and times
+            let dtLocalUsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName).toFormat("ZZZZZ");
+            // ↑↑↑ variables partaining to UserTimeZone dates and times
+
+
+            // ↓↓↓ variables partaining to UserTimeZone hours and minutes
+            let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('H:mm');
+            let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
+
+            let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
+            let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
+            // ↑↑↑ variables partaining to UserTimeZone hours and minutes
+
+
+            // ↓↓↓ get days of the week for 1st and 2nd day of course (User TimeZone)
+            let dt1StartUsrTzWeekday = dt1UsrTz.weekdayShort;
+            // ↑↑↑  get days of the week for 1st and 2nd day of course (User TimeZone)
+
+            let dt2StartUsrTzWeekday = dt2StartUsrTz.weekdayShort;
+
+
+            // ↓↓↓ get month and day for title (User TimeZone)
+            let dt1UsrMonthAndDay = "" + dt1UsrTz.toFormat("LLL dd") + getNumberSuffix(dt1UsrTz.toFormat("ddt2HourEndUsrTzStringd"));
+            // ↑↑↑ get month and day for title (User TimeZone)
+
+
+            // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
+            let dt1StartUsrFullDate = "" + dt1UsrTz.toFormat("ccc, LLL dd yyyy"); //former format toFormat("ccc, LLL dd yyyy")
+            // ↑↑↑ get full date for 1st day of course, at start of course, in User TimeZone
+
+
+            // ↓↓↓ get full date for 1st day of course, at end of course, in User TimeZone
+            let dt1EndUsrFullDate = "" + dt1HourEndUsrTz.toFormat("ccc, LLL dd yyyy");
+            // ↑↑↑ get full date for 1st day of course, at end of course, in User TimeZone
+
+
+            //insert user month and day in table header
+            jQuery(this).find('.usr-strt-date').text(dt1UsrMonthAndDay);
+
+
+            //insert user timezone
+            jQuery(this).find('.user-timezone').text(dtLocalUsrTz);
+
+
+
+            //replace 1st and 2nd day of the week
+            jQuery(this).find('.day-1st').text(dt1StartUsrTzWeekday);
+            jQuery(this).find('.day-2nd').text(dt2StartUsrTzWeekday);
+
+            //replace 1st and 2nd day of the week
+            jQuery(this).find('.nyt-row .day-1st').text(dt1StartNYweekday);
+            jQuery(this).find('.nyt-row .day-2nd').text(dt2StartNYweekday);
+
+
+            //replace course hours start and hour end for user time
+            jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
+            jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
+
+            //replace course hours start and hour end for New York time
+            jQuery(this).find('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
+            jQuery(this).find('.nyt-row .end-hr').text(dtHourEndNYAmPm);
+
+
+            //replace course date start and date end for User Time
+            jQuery(this).find('.usrt-row .date-of-start').text(dt1StartUsrFullDate);
+            jQuery(this).find('.usrt-row .date-of-end').text(dt1EndUsrFullDate);
+
+            //replace course date start and date end for New York Time
+            jQuery(this).find('.nyt-row .date-of-start').text(dt1StartNYFullDate);
+            jQuery(this).find('.nyt-row .date-of-end').text(dt1EndNYFullDate);
+
+
+            //replace timezone name for New York Timezone (necesary due to Daylight vs non-Daylight variance)
+            jQuery(this).find('.ny-timezone').text(dtLocalZoneNY);
+
+            //replace timezone name for New York Timezone (the short one, with bold)
+            jQuery(this).find('.new-york-tz-short').text(dtLocalZoneShortNY);
+
+
+
+            //functionality for btn 24h to am-pm
+            jQuery(this).find(".conv-but").on('click', function() {
+                var myBtn = jQuery(this);
+                if (myBtn.text().includes("24h")) {
+                    // myBtn.text("24h")
+                    jQuery(".conv-but").text("AM/PM")
+                    jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
+                    jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
+                    jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
+                    jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
+                } else {
+                    jQuery(".conv-but").text("24h")
+                    jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
+                    jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
+                    jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
+                    jQuery('.nyt-row .end-hr').text(dtHourEndNYAmPm);
+                }
+                console.log("hhh")
+            });
+
+
+
+            function getNumberSuffix(num) {
+                const th = 'th'
+                const rd = 'rd'
+                const nd = 'nd'
+                const st = 'st'
+
+                if (num === 11 || num === 12 || num === 13) return th
+
+                let lastDigit = num.toString().slice(-1)
+
+                switch (lastDigit) {
+                    case '1':
+                        return st
+                    case '2':
+                        return nd
+                    case '3':
+                        return rd
+                    default:
+                        return th
+                }
+            }
+
+
+            //the code bellow handles the case where the course has already started 24 hours ago
+            if(luxon.DateTime.now().plus({ hours: 24 }) > dt1HourEndUsrTz ){
+                // jQuery(this).find(".time-conv *").css('color', 'red');
+                jQuery(this).find(".to-be-announced").append("To be announced");
+                jQuery(this).find(".cont-usr-strtdt").remove();
+            }
+            
+        });
+    });
+</script>
