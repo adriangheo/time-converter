@@ -251,7 +251,7 @@
                     24h
                 </div>
                 <label class="switch-btn">
-                    <input type="checkbox" onclick="change()">
+                    <input type="checkbox"  class="temp-cls">
                     <span class="slider round">
                         <h1 class="light-text">24h</h1>
                     </span>
@@ -313,7 +313,7 @@
                 </div>
 
                 <label class="switch-btn">
-                    <input type="checkbox">
+                    <input type="checkbox" class="temp-cls">
                     <span class="slider round">
                 <h1 class="light-text">24h</h1>
             </span>
@@ -697,19 +697,19 @@
         //     });
         // });
 
-        jQuery(".switch-btn input").each(function(){
-            jQuery(this).on("click", function(){
-                let x = jQuery(this).next().find(">:first-child");
-                if (x.text() === "24h") {
-                    jQuery(".switch-btn .light-text").text("am/pm");
-                    changeTo24h();
-                } else {
-                    jQuery(".switch-btn .light-text").text("24h");
-                    changeToAmPm();
-                }
-            });
+        jQuery(".switch-btn").on("click", function(){
+            console.log(this);
+            // jQuery(this).removeClass("my-tmp-cls");
+            
+            // jQuery(".switch-btn input.switch-btn").click();
+            // jQuery(".switch-btn input").addClass("switch-btn");
         });
+
+
+
+        
     </script>
+
 
 </body>
 
