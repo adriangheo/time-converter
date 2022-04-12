@@ -697,17 +697,19 @@
         //     });
         // });
 
-        jQuery(".switch-btn").on("click", function(){
+        jQuery(".switch-btn").on("click", function() {
             console.log(this);
             // jQuery(this).removeClass("my-tmp-cls");
-            
+
             // jQuery(".switch-btn input.switch-btn").click();
             // jQuery(".switch-btn input").addClass("switch-btn");
         });
 
 
-
-        
+        //functionality for btn 24h to am-pm
+        jQuery(".switch-btn").on('click', function(event) {
+            event.preventDefault();
+        });
     </script>
 
 
