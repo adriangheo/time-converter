@@ -259,6 +259,12 @@
         let arraydt1HourStartNY24h = [];
         let arraydtHourEndNY24h = [];
 
+        let arraydt1HourStartUsrTzAmPm = [];
+        let arraydt1HourEndUsrTzStringAmPm = [];
+        let arraydt1HourStartNYAmPm = [];
+        let arraydtHourEndNYAmPm = [];
+
+
         jQuery(document).ready(function() {
             jQuery('.timeconvertorparent').each(function() {
 
@@ -377,11 +383,13 @@
                 arraydt1HourStartNY24h.push(dt1HourStartNY24h)
                 // let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm a');
                 let dt1HourStartNYAmPm = dt1StartNY.toFormat('h:mm');
+                arraydt1HourStartNYAmPm.push(dt1HourStartNYAmPm)
 
                 let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
                 arraydtHourEndNY24h.push(dtHourEndNY24h)
                 // let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm a');
                 let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('h:mm');
+                arraydtHourEndNYAmPm.push(dtHourEndNYAmPm)
 
                 // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
                 // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -409,12 +417,16 @@
                 arraydt1HourStartUsrTz24h.push(dt1HourStartUsrTz24h)
                 // let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm a');
                 let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('h:mm');
+                arraydt1HourStartUsrTzAmPm.push(dt1HourStartUsrTzAmPm)
+
 
 
                 let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
                 arraydt1HourEndUsrTzString24h.push(dt1HourEndUsrTzString24h)
                 // let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm a');
                 let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('h:mm');
+                arraydt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)
+
                 // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
 
@@ -539,6 +551,12 @@
 
         function change(){
             for(let i = 0; i < allNyStartHr.length; i++){
+                jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
+            }
+        }
+                
+        function changeTo24h(){
+            for(let i = 0; i < allNyStartHr.length; i++){
                 jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz24h[i]);
                 jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzString24h[i]);
                 jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
@@ -546,6 +564,18 @@
 
             }
         }
+
+        function changeToAmPm(){
+            for(let i = 0; i < allNyStartHr.length; i++){
+                jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTzAmPm[i]);
+                jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzStringAmPm[i]);
+                jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNYAmPm[i]);
+                jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNYAmPm[i]);
+
+            }
+        }
+
+
     </script>
 
 
