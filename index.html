@@ -9,6 +9,69 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
     <title>TimeConv</title>
 
+
+    <style>
+        .switch-btn {
+            font-size: 12px;
+            position: relative;
+            display: inline-block;
+            width: 65px;
+            height: 24px;
+        }
+        
+        .switch-btn input {
+            visibility: hidden;
+        }
+        
+        .light-text {
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #00B189;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
+            box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.2), 5px 5px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            background: #fff;
+            left: 4px;
+            bottom: 4px;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+        }
+        
+        input:checked+.slider {
+            background: #FF5859;
+        }
+        
+        input:checked+.slider:before {
+            transform: translateX(42px);
+        }
+        
+        .slider.round {
+            border-radius: 50px;
+        }
+        
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+
+
     <style>
         /* Lupu's styling */
         
@@ -187,6 +250,12 @@
                 <div class="conv-but">
                     24h
                 </div>
+                <div class="switch-parent parent-tmp-cls">
+                    <label class="switch-btn">
+                        <input type="checkbox" class="temp-cls">
+                        <span class="slider round">
+                    <h1 class="light-text">24h</h1>
+                </div>
             </td>
         </tr>
     </tbody>
@@ -240,6 +309,13 @@
                 <div class="conv-but">
                     24h
                 </div>
+                <div class="switch-parent parent-tmp-cls">
+                    <label class="switch-btn">
+                        <input type="checkbox" class="temp-cls">
+                        <span class="slider round">
+                    <h1 class="light-text">24h</h1>
+                </div>
+                
             </td>
         </tr>
     </tbody>
@@ -472,25 +548,42 @@
 
 
 
-                //functionality for btn 24h to am-pm
-                jQuery(this).find(".conv-but").on('click', function() {
-                    var myBtn = jQuery(this);
-                    if (myBtn.text().includes("24h")) {
-                        // myBtn.text("24h")
-                        jQuery(".conv-but").text("AM/PM")
-                        jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
-                        jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
-                        jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
-                        jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
-                    } else {
-                        jQuery(".conv-but").text("24h")
-                        jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
-                        jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
-                        jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
-                        jQuery('.nyt-row .end-hr').text(dtHourEndNYAmPm);
-                    }
-                    console.log("hhh")
+                // //functionality for btn 24h to am-pm
+                // jQuery(this).find(".conv-but").on('click', function() {
+                //     var myBtn = jQuery(this);
+                //     if (myBtn.text().includes("24h")) {
+                //         // myBtn.text("24h")
+                //         jQuery(".conv-but").text("AM/PM")
+                //         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTz24h);
+                //         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzString24h);
+                //         jQuery('.nyt-row .start-hr').text(dt1HourStartNY24h);
+                //         jQuery('.nyt-row .end-hr').text(dtHourEndNY24h);
+                //     } else {
+                //         jQuery(".conv-but").text("24h")
+                //         jQuery('.usrt-row .start-hr').text(dt1HourStartUsrTzAmPm);
+                //         jQuery('.usrt-row .end-hr').text(dt1HourEndUsrTzStringAmPm);
+                //         jQuery('.nyt-row .start-hr').text(dt1HourStartNYAmPm);
+                //         jQuery('.nyt-row .end-hr').text(dtHourEndNYAmPm);
+                //     }
+                //     console.log("hhh")
+                // });
+
+
+                
+                // jQuery(".slider.round").on("click", function(){
+                //     console.log("aaa")
+                //     jQuery(this).removeClass('parent-tmp-cls');
+                //     var curElm = jQuery(this)
+                //     setTimeout(function(){
+                //         console.log(curElm);
+                //     }, 5000);
+                // });
+
+                document.querySelector(".parent-tmp-cls").addEventListener("click", function(){
+                    console.log("uuu");
                 });
+
+
 
 
 
