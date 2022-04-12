@@ -330,7 +330,7 @@
 
 
     <script>
-         var myArray = []
+        var myArray = []
 
         let arraydt1HourStartUsrTz24h = [];
         let arraydt1HourEndUsrTzString24h = [];
@@ -642,7 +642,7 @@
 
         let allNyStartHr = document.querySelectorAll(".nyt-row .start-hr");
 
-        function change() {
+        function change(timeFormatStr) {
             for (let i = 0; i < allNyStartHr.length; i++) {
                 jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
             }
@@ -712,6 +712,14 @@
         jQuery(".light-text").on('click', function(event) {
             event.stopImmediatePropagation()
             console.log("aaa");
+            if (jQuery(this).text().includes("24h")) {
+                // myBtn.text("24h")
+                jQuery(".light-text").text("AM/PM")
+                changeTo24h();
+            }else{
+                jQuery(".light-text").text("24h")
+                changeToAmPm();
+            }
             jQuery(".temp-cls").click();
             // jQuery(".light-text").click();
         });
@@ -720,6 +728,14 @@
         jQuery(".slider.round").on('click', function(event) {
             event.stopImmediatePropagation()
             console.log("bbb");
+            if (jQuery(this).text().includes("24h")) {
+                // myBtn.text("24h")
+                jQuery(".light-text").text("AM/PM")
+                changeTo24h();
+            }else{
+                jQuery(".light-text").text("24h")
+                changeToAmPm();
+            }
             jQuery(".temp-cls").click();
 
             // jQuery(".light-text").click();
@@ -728,8 +744,9 @@
 
         jQuery(".temp-cls").on('click', function(event) {
             event.preventDefault();
+
         });
-        
+
 
         // commit test
     </script>
