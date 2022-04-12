@@ -9,6 +9,70 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/2.3.1/luxon.min.js"></script>
     <title>TimeConv</title>
     
+
+    <style>
+
+        .switch-btn {
+                font-size: 12px;
+                position: relative;
+                display: inline-block;
+                width: 65px;
+                height: 24px;
+            }
+            
+            .switch-btn input {
+                visibility: hidden;
+            }
+        
+            .light-text{
+                text-align: center;
+                font-size: 12px;
+                color: #fff;
+            }
+        
+            .slider {
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #00B189;
+                -webkit-transition: 0.4s;
+                transition: 0.4s;
+                box-shadow: -5px -5px 8px rgba(255, 255, 255, 0.2), 5px 5px 8px rgba(0, 0, 0, 0.2);
+            }
+            
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 12px;
+                width: 12px;
+                background: #fff;
+                left: 4px;
+                bottom: 4px;
+                -webkit-transition: 0.5s;
+                transition: 0.5s;
+            }
+            
+            input:checked+.slider {
+                background: #FF5859;
+            }
+            
+            input:checked+.slider:before {
+                transform: translateX(42px);
+            }
+            
+            .slider.round {
+                border-radius: 50px;
+            }
+            
+            .slider.round:before {
+                border-radius: 50%;
+            }
+        
+        </style>
+
     <style>
         /* Lupu's styling */
         
@@ -188,6 +252,12 @@
                 <div class="conv-but">
                     24h
                 </div>
+                <label class="switch-btn">
+                    <input type="checkbox" onclick="change()">
+                    <span class="slider round">
+                        <h1 class="light-text">24h</h1>
+                    </span>
+                </label>
             </td>
         </tr>
     </tbody>
@@ -243,6 +313,13 @@
         <div class="conv-but">
             24h
         </div>
+        <label class="switch-btn">
+            <input type="checkbox" onclick="change()">
+            <span class="slider round">
+                <h1 class="light-text">24h</h1>
+            </span>
+        </label>
+    
     </td>
 </tr>
 </tbody>
@@ -605,6 +682,17 @@ function changeToAmPm(){
 
 </script>
 
+
+<script>
+    function change() {
+        var x = document.querySelector(".light-text");
+        if (x.innerHTML === "24h") {
+            x.innerHTML = "am/pm";
+        } else {
+            x.innerHTML = "24h";
+        }
+    }
+</script>
 
 
 </body>
