@@ -330,6 +330,8 @@
 
 
     <script>
+         var myArray = []
+
         let arraydt1HourStartUsrTz24h = [];
         let arraydt1HourEndUsrTzString24h = [];
         let arraydt1HourStartNY24h = [];
@@ -697,19 +699,36 @@
         //     });
         // });
 
-        jQuery(".switch-btn").on("click", function() {
-            console.log(this);
-            // jQuery(this).removeClass("my-tmp-cls");
+        // jQuery(".switch-btn").on("click", function() {
+        //     console.log(this);
+        //     // jQuery(this).removeClass("my-tmp-cls");
 
-            // jQuery(".switch-btn input.switch-btn").click();
-            // jQuery(".switch-btn input").addClass("switch-btn");
-        });
+        //     // jQuery(".switch-btn input.switch-btn").click();
+        //     // jQuery(".switch-btn input").addClass("switch-btn");
+        // });
 
 
-        //functionality for btn 24h to am-pm
-        jQuery(".switch-btn").on('click', function(event) {
+        // //functionality for btn 24h to am-pm
+        // jQuery(".light-text").on('click', function(event) {
+        //     event.stopImmediatePropagation()
+        //     console.log("aaa");
+        //     // jQuery(".light-text").click();
+        // });
+
+
+        // jQuery(".slider.round").on('click', function(event) {
+        //     event.stopImmediatePropagation()
+        //     console.log("bbb");
+        //     // jQuery(".light-text").click();
+        // });
+
+
+        jQuery(".temp-cls").on('click', function(event) {
             event.preventDefault();
         });
+        
+
+
     </script>
 
 
