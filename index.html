@@ -683,35 +683,9 @@
 
 
     <script>
-        // function change() {
-        //     var lightTextElmnts = document.querySelectorAll(".light-text");
-        //     if (x.innerHTML === "24h") {
-        //         x.innerHTML = "am/pm";
-        //     } else {
-        //         x.innerHTML = "24h";
-        //     }
-        // }
-
-
-        // document.querySelectorAll(".switch-btn input").forEach(element => {
-        //     element.addEventListener("click", function(event) {
-        //         console.log(element);
-        //     });
-        // });
-
-        // jQuery(".switch-btn").on("click", function() {
-        //     console.log(this);
-        //     // jQuery(this).removeClass("my-tmp-cls");
-
-        //     // jQuery(".switch-btn input.switch-btn").click();
-        //     // jQuery(".switch-btn input").addClass("switch-btn");
-        // });
-
-
         //functionality for btn 24h to am-pm
         jQuery(".light-text").on('click', function(event) {
             event.stopImmediatePropagation()
-            console.log("aaa");
             if (jQuery(this).text().includes("24h")) {
                 // myBtn.text("24h")
                 jQuery(".light-text").text("AM/PM")
@@ -727,7 +701,6 @@
 
         jQuery(".slider.round").on('click', function(event) {
             event.stopImmediatePropagation()
-            console.log("bbb");
             if (jQuery(this).text().includes("24h")) {
                 // myBtn.text("24h")
                 jQuery(".light-text").text("AM/PM")
@@ -737,8 +710,6 @@
                 changeToAmPm();
             }
             jQuery(".temp-cls").click();
-
-            // jQuery(".light-text").click();
         });
 
 
@@ -746,9 +717,6 @@
             event.preventDefault();
 
         });
-
-
-        // commit test
     </script>
 
 
