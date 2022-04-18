@@ -339,7 +339,31 @@
 
 
         <script>
-            var myArray = []
+            var myArrayOfObjects = []
+
+            //---------------------
+
+            class TimeConvertor {
+                constructor() {
+                    this.name = 'TimeConvertor';
+                }
+            }
+
+            const poly1 = new TimeConvertor();
+
+
+            //---------------------
+
+
+            console.log(poly1.name);
+
+
+            var divs = document.querySelectorAll('div'), i;
+
+            for (i = 0; i < divs.length; ++i) {
+                divs[i].style.color = "green";
+            }
+
         
             let arraydt1HourStartUsrTz24h = [];
             let arraydt1HourEndUsrTzString24h = [];
@@ -356,6 +380,8 @@
             let arraydt1HourStartNYAmPm = [];
             let arraydtHourEndNYAmPm = [];
         
+
+            
 
             jQuery('.timeconvertorparent').each(function() {
     
