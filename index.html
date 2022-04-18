@@ -352,17 +352,57 @@
             const timeConv = new TimeConvertor();
             console.log(timeConv.name);
 
-            //---------------------
-
-
-
-
+            //--------------------------------------------------
 
             var divs = document.querySelectorAll('div'), i;
 
             for (i = 0; i < divs.length; ++i) {
-                divs[i].style.color = "green";
+              divs[i].style.color = "green";
             }
+
+            //---------------------
+
+
+            function getMonthFromString(mon) {
+                return new Date(Date.parse(mon + " 1, 2012")).getMonth() + 1;
+            }
+
+
+
+            var divs = document.querySelectorAll('.timeconvertorparent'), i;
+
+            for (i = 0; i < divs.length; ++i) {
+                var date_and_time_of_first_course_v2 = divs[i].querySelector(".date-and-time-of-first-course").innerHTML;
+                var date_of_second_course_v2 = divs[i].querySelector('.date-of-second-course').innerHTML;
+                var total_course_minutes_v2 = divs[i].querySelector('.total-course-minutes').innerHTML;
+
+                var day_1st_v2 = 'Sun';
+                var day_2nd_v2 = 'Wed';
+                var myMonth_v2 = getMonthFromString(date_and_time_of_first_course_v2.substring(3, 6));
+                var cDay1st_v2 = date_and_time_of_first_course_v2.substring(0, 2);
+                var cHour_v2 = date_and_time_of_first_course_v2.substring(12, 14);
+                var cMinute_v2 = date_and_time_of_first_course_v2.substring(15, 17)
+
+                // 1. -----------------------------------------------------------------------------------------------------------------------------------
+                // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
+                let dt1StartNY_v2 = luxon.DateTime.fromObject({
+                    month: myMonth_v2,
+                    day: cDay1st_v2,
+                    hour: cHour_v2,
+                    minute: cMinute_v2
+                }, {
+                    zone: 'America/New_York'
+                });
+                // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
+                //-----------------------------------------------------------------------------------------------------------------------------------
+    
+                console.log(dt1StartNY_v2);
+            }
+
+
+
+
+
 
         
             let arraydt1HourStartUsrTz24h = [];
