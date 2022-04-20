@@ -146,14 +146,14 @@
     </style>
 
     <body>
-        <h1></h1>
+        <h1>uuuu</h1>
 
         <!-- ---------------------------- -->
         <!-- START OF MODULE 1 -->
         <div class="timeconvertorparent">
             <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
-            <div class="date-and-time-of-first-course">19-Apr-2022 10:00</div>
-            <div class="date-of-second-course">19-Apr-2022</div>
+            <div class="date-and-time-of-first-course">19-Apr-1970 10:00</div>
+            <div class="date-of-second-course">19-Apr-1970</div>
             <div class="total-course-minutes">60</div>
 
             <table class=time-conv>
@@ -338,24 +338,26 @@
         <!-- -------------------------- -->
 
 
-          <!-- ---------------------------- -->
-        <!-- START OF MODULE 4 -->
+        <hr>
+        <hr>
+
+        <!-- ----------------------------- -->
+        <!--  START OF MODULE 2 -->
         <div class="timeconvertorparent">
             <!-- IMPORTANT please read: only insert date in the format DD-Mmm-YYYY ...eg. 01-May-2025 -->
-            <div class="date-and-time-of-first-course">22-Apr-2022 10:00</div>
-            <div class="date-of-second-course">23-Apr-2022</div>
+            <div class="date-and-time-of-first-course">22-Apr-2030 10:00</div>
+            <div class="date-of-second-course">20-Apr-2022</div>
             <div class="total-course-minutes">60</div>
 
             <table class=time-conv>
                 <thead>
                     <tr>
                         <th class="headerbox" colspan="2">
-                            <p class="tz-bold"><span class="group-cls-name">Group C</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> &
+                            <p class="tz-bold"><span class="group-cls-name">Group B</span> starting date: <span class="cont-usr-strtdt"><span class="usr-strt-date">x March 10th</span>, <span class="minwidth tz-usrt-2 day-of-week"><span class="day-1st">x Sun</span> &
                                 <span
                                     class="day-2nd">x Wed</span>
                                     </span>
-                                    </span>
-        </div>
+                                    </span><span class="to-be-announced"></span></div>
         </th>
         </tr>
         </thead>
@@ -386,16 +388,23 @@
                 <td class="conv-cell" colspan=3>
                     <!-- <div class="conv-but"> -->
                     <label class="switch-btn">
-                        <input type="checkbox" class="temp-cls">
-                        <span class="slider round"> <h1 class="light-text">AM/PM</h1> </span>
+                        <input type="checkbox"  class="temp-cls">
+                        <span class="slider round">
+                            <h1 class="light-text">AM/PM</h1>
+                        </span>
                     </label>
-
-                    <!-- </div>                 -->
+                    <!-- </div> -->
                 </td>
             </tr>
         </tbody>
         </table>
         </div>
+        <!--  END OF MODULE 2  -->
+        <!-- -------------------------- -->
+
+        <hr>
+        <hr>
+        
         <!--  END OF MODULE 4 -->
         <!-- -------------------------- -->
 
@@ -441,6 +450,7 @@
         
                     var day_1st = 'Sun';
                     var day_2nd = 'Wed';
+                    var cYear = date_and_time_of_first_course.substring(7, 11);
                     var myMonth = getMonthFromString(date_and_time_of_first_course.substring(3, 6));
                     var cDay1st = date_and_time_of_first_course.substring(0, 2);
                     var cHour = date_and_time_of_first_course.substring(12, 14);
@@ -455,6 +465,7 @@
                     // 1. -----------------------------------------------------------------------------------------------------------------------------------
                     // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in NewYork time), calculated at the precise hour and minute it BEGINS
                     let dt1StartNY = luxon.DateTime.fromObject({
+                        year: cYear,
                         month: myMonth,
                         day: cDay1st,
                         hour: cHour,
@@ -702,7 +713,8 @@
                     var tommorow = luxon.DateTime.now().plus({
                             hours: 24
                         });
-                    if (tommorow < dt1HourEndUsrTz) {
+                    var myBool = (parseInt(tommorow.ts, 10)  >  parseInt(dt1HourEndUsrTz.ts, 10));
+                    if (myBool) {
                         // jQuery(this).find(".time-conv *").css('color', 'red');
                         console.log("tommorow: " + tommorow );
                         console.log(tommorow);
@@ -712,7 +724,15 @@
                         jQuery(this).find(".to-be-announced").append("To be announced");
                         jQuery(this).find(".cont-usr-strtdt").remove();
                     }
-        
+                        // console.log("tommorow.ts: " + tommorow.ts );
+                        // console.log(tommorow.ts);
+                        // console.log("dt1HourEndUsrTz.ts: " + dt1HourEndUsrTz.ts );
+                        // console.log(dt1HourEndUsrTz.ts);
+                        // var myBool = (parseInt(tommorow.ts, 10)  <  parseInt(dt1HourEndUsrTz.ts, 10));
+                        // console.log("tommorow.ts < dt1HourEndUsrTz.ts: " + myBool);
+                        // console.log("---------" );
+
+
                 });
             });
         
