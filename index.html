@@ -532,7 +532,7 @@
 
 
             // ↓↓↓ get month and day for title (User TimeZone)
-            let dt1UsrMonthAndDay = "" + dt1UsrTz.toFormat("LLL dd") + getNumberSuffix(dt1UsrTz.toFormat("ddt2HourEndUsrTzStringd"));
+            let dt1UsrMonthAndDay = "" + dt1UsrTz.toFormat("LLL d")+ getNumberSuffix(dt1UsrTz.toFormat("ddt2HourEndUsrTzStringd"));
             // ↑↑↑ get month and day for title (User TimeZone)
 
 
@@ -552,6 +552,7 @@
 
 
             //insert user month and day in table header
+            // jQuery(this).find('.usr-strt-date').text(dt1EndUsrWeekDay + ", " + dt1UsrMonthAndDay);
             jQuery(this).find('.usr-strt-date').text(dt1EndUsrWeekDay + ", " + dt1UsrMonthAndDay);
 
 
@@ -805,14 +806,3 @@
     });
 </script>
 <script>
-    jQuery(document).ready(function() {
-        setTimeout(function() {
-            var oldText = jQuery(".usr-strt-date").text();
-            var newText = ""
-            if (oldText.charAt(9) === "0") {
-                newText = (oldText.substring(0, 9) + oldText.substring(10, 13))
-            }
-            jQuery(".usr-strt-date").text(newText);
-        }, 500);
-    });
-</script>
