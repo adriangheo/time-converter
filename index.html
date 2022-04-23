@@ -593,7 +593,7 @@
                 day: date_of_second_course.substring(0, 2),
                 month: getMonthFromString(date_of_second_course.substring(3, 6))
             });
-            // ↓↓↓ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
+            // ↑↑↑ LuxonJs Object, set to date and time of 2nd day's course  (in NewYork time), calculated at the precise hour and minute it ENDS
             //-----------------------------------------------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------------------------------------------
             //-----------------------------------------------------------------------------------------------------------------------------------
@@ -607,7 +607,7 @@
             // 1.-----------------------------------------------------------------------------------------------------------------------------------
             // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
             let dt1UsrTz = dt1StartNY.setZone(luxon.DateTime.local().zoneName);
-            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
+            // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in User TimeZone), calculated at the precise hour and minute it BEGINS
             //-----------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -616,7 +616,7 @@
             let dt1HourEndUsrTz = dt1UsrTz.plus({
                 minutes: total_course_minutes
             });
-            // ↓↓↓ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
+            // ↑↑↑ LuxonJs Object, set to date and time of 1st day's course  (in User time), calculated at the precise hour and minute it ENDS
             //-----------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -663,7 +663,6 @@
             // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
             let dtLocalZoneNY = dt1StartNY.toFormat("ZZZZZ");
             let dtLocalZoneShortNY = dt1StartNY.toFormat("ZZZZ");
-
             // ↑↑↑ variables partaining to America/New_York dates and times
 
             // ↓↓↓ get full date for 1st day of course, at start of course, in User TimeZone
@@ -681,8 +680,6 @@
             var str = dtLocalUsrTz;
             var matches = str.match(/\b(\w)/g); // ['J','S','O','N']
             var dtLocalUsrShortTz = matches.join(''); // JSON
-
-
             // ↑↑↑ variables partaining to UserTimeZone dates and times
 
 
@@ -695,14 +692,12 @@
             arrayDt1HourStartUsrTzAmPm.push(dt1HourStartUsrTzAmPm)
 
 
-
             let dt1HourEndUsrTz24h = dt1HourEndUsrTz.toFormat('H:mm');
             arraydt1HourEndUsrTz24h.push(dt1HourEndUsrTz24h)
             let dt1HourEndUsrTz12h = dt1HourEndUsrTz.toFormat('h:mm');
             arrayDt1HourEndUsrTz12h.push(dt1HourEndUsrTz12h)
             let dt1HourEndUsrTzAmPm = dt1HourEndUsrTz.toFormat('a');
             arrayDt1HourEndUsrTzAmPm.push(dt1HourEndUsrTzAmPm)
-
             // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
 
@@ -885,7 +880,6 @@
 
         }
         jQuery(".temp-cls").click();
-        // jQuery(".light-text").click();
     });
 
 
