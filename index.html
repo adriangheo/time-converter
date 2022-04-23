@@ -517,12 +517,12 @@
     let arraydtHourEndNY24h = [];
 
     let arrayDt1HourStartUsrTz12h = [];
-    let arrayDt1HourEndUsrTzString12h = [];
+    let arrayDt1HourEndUsrTz12h = [];
     let arrayDt1HourStartNY12h = [];
     let arrayDtHourEndNY12h = [];
 
     let arrayDt1HourStartUsrTzAmPm = [];
-    let arrayDt1HourEndUsrTzStringAmPm = [];
+    let arrayDt1HourEndUsrTzAmPm = [];
     let arrayDt1HourStartNYAmPm = [];
     let arrayDtHourEndNYAmPm = [];
 
@@ -646,7 +646,6 @@
             // reference link: https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-intldatetimeformat
             let dt1HourStartNY24h = dt1StartNY.toFormat('H:mm');
             arraydt1HourStartNY24h.push(dt1HourStartNY24h)
-                // let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm a');
             let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm');
             arrayDt1HourStartNY12h.push(dt1HourStartNY12h);
             let dt1HourStartNYAmPm = dt1StartNY.toFormat('a');
@@ -655,7 +654,6 @@
 
             let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
             arraydtHourEndNY24h.push(dtHourEndNY24h)
-                // let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm a');
             let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm');
             arrayDtHourEndNY12h.push(dtHourEndNY12h)
             let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('a');
@@ -701,9 +699,9 @@
             let dt1HourEndUsrTz24h = dt1HourEndUsrTz.toFormat('H:mm');
             arraydt1HourEndUsrTz24h.push(dt1HourEndUsrTz24h)
             let dt1HourEndUsrTz12h = dt1HourEndUsrTz.toFormat('h:mm');
-            arrayDt1HourEndUsrTzString12h.push(dt1HourEndUsrTz12h)
-            let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('a');
-            arrayDt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)
+            arrayDt1HourEndUsrTz12h.push(dt1HourEndUsrTz12h)
+            let dt1HourEndUsrTzAmPm = dt1HourEndUsrTz.toFormat('a');
+            arrayDt1HourEndUsrTzAmPm.push(dt1HourEndUsrTzAmPm)
 
             // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
@@ -859,12 +857,12 @@
     function changeToAmPm() {
         for (let i = 0; i < allNyStartHr.length; i++) {
             jQuery(".usrt-row .start-hr").eq(i).text(arrayDt1HourStartUsrTz12h[i]);
-            jQuery(".usrt-row .end-hr").eq(i).text(arrayDt1HourEndUsrTzString12h[i]);
+            jQuery(".usrt-row .end-hr").eq(i).text(arrayDt1HourEndUsrTz12h[i]);
             jQuery(".nyt-row .start-hr").eq(i).text(arrayDt1HourStartNY12h[i]);
             jQuery(".nyt-row .end-hr").eq(i).text(arrayDtHourEndNY12h[i]);
 
             jQuery(".usrt-row .am-pm-start-hr").eq(i).append(arrayDt1HourStartUsrTzAmPm[i]);
-            jQuery(".usrt-row .am-pm-end-hr").eq(i).append(arrayDt1HourEndUsrTzStringAmPm[i]);
+            jQuery(".usrt-row .am-pm-end-hr").eq(i).append(arrayDt1HourEndUsrTzAmPm[i]);
             jQuery(".nyt-row .am-pm-start-hr").eq(i).append(arrayDt1HourStartNYAmPm[i]);
             jQuery(".nyt-row .am-pm-end-hr").eq(i).append(arrayDtHourEndNYAmPm[i]);
         }
