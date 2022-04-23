@@ -516,15 +516,15 @@
     let arraydt1HourStartNY24h = [];
     let arraydtHourEndNY24h = [];
 
-    let arraydt1HourStartUsrTz12h = [];
-    let arraydt1HourEndUsrTzString12h = [];
-    let arraydt1HourStartNY12h = [];
-    let arraydtHourEndNY12h = [];
+    let arrayDt1HourStartUsrTz12h = [];
+    let arrayDt1HourEndUsrTzString12h = [];
+    let arrayDt1HourStartNY12h = [];
+    let arrayDtHourEndNY12h = [];
 
-    let arraydt1HourStartUsrTzAmPm = [];
-    let arraydt1HourEndUsrTzStringAmPm = [];
-    let arraydt1HourStartNYAmPm = [];
-    let arraydtHourEndNYAmPm = [];
+    let arrayDt1HourStartUsrTzAmPm = [];
+    let arrayDt1HourEndUsrTzStringAmPm = [];
+    let arrayDt1HourStartNYAmPm = [];
+    let arrayDtHourEndNYAmPm = [];
 
 
 
@@ -648,18 +648,18 @@
             arraydt1HourStartNY24h.push(dt1HourStartNY24h)
                 // let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm a');
             let dt1HourStartNY12h = dt1StartNY.toFormat('h:mm');
-            arraydt1HourStartNY12h.push(dt1HourStartNY12h);
+            arrayDt1HourStartNY12h.push(dt1HourStartNY12h);
             let dt1HourStartNYAmPm = dt1StartNY.toFormat('a');
-            arraydt1HourStartNYAmPm.push(dt1HourStartNYAmPm);
+            arrayDt1HourStartNYAmPm.push(dt1HourStartNYAmPm);
 
 
             let dtHourEndNY24h = dt1HourEndNYobj.toFormat('H:mm');
             arraydtHourEndNY24h.push(dtHourEndNY24h)
                 // let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm a');
             let dtHourEndNY12h = dt1HourEndNYobj.toFormat('h:mm');
-            arraydtHourEndNY12h.push(dtHourEndNY12h)
+            arrayDtHourEndNY12h.push(dtHourEndNY12h)
             let dtHourEndNYAmPm = dt1HourEndNYobj.toFormat('a');
-            arraydtHourEndNYAmPm.push(dtHourEndNYAmPm)
+            arrayDtHourEndNYAmPm.push(dtHourEndNYAmPm)
 
             // reference link: https://github.com/moment/luxon/blob/master/docs/zones.md#user-content-creating-datetimes
             // reference link:https://github.com/moment/luxon/blob/master/docs/formatting.md#user-content-table-of-tokens
@@ -691,21 +691,19 @@
             // ↓↓↓ variables partaining to UserTimeZone hours and minutes
             let dt1HourStartUsrTz24h = dt1UsrTz.toFormat('H:mm');
             arraydt1HourStartUsrTz24h.push(dt1HourStartUsrTz24h)
-                // let dt1HourStartUsrTz12h = dt1UsrTz.toFormat('h:mm a');
             let dt1HourStartUsrTz12h = dt1UsrTz.toFormat('h:mm');
-            arraydt1HourStartUsrTz12h.push(dt1HourStartUsrTz12h);
+            arrayDt1HourStartUsrTz12h.push(dt1HourStartUsrTz12h);
             let dt1HourStartUsrTzAmPm = dt1UsrTz.toFormat('a');
-            arraydt1HourStartUsrTzAmPm.push(dt1HourStartUsrTzAmPm)
+            arrayDt1HourStartUsrTzAmPm.push(dt1HourStartUsrTzAmPm)
 
 
 
             let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
             arraydt1HourEndUsrTzString24h.push(dt1HourEndUsrTzString24h)
-                // let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm a');
             let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm');
-            arraydt1HourEndUsrTzString12h.push(dt1HourEndUsrTzString12h)
+            arrayDt1HourEndUsrTzString12h.push(dt1HourEndUsrTzString12h)
             let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('a');
-            arraydt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)
+            arrayDt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)
 
             // ↑↑↑ variables partaining to UserTimeZone hours and minutes
 
@@ -829,85 +827,13 @@
                 hours: -24
             });
             var myBool = (parseInt(tommorow.ts, 10) > parseInt(dt1HourEndUsrTz.ts, 10));
-            // if (myBool) {
-            //     // jQuery(this).find(".time-conv *").css('color', 'red');
-            //     console.log("tommorow: " + tommorow );
-            //     console.log(tommorow);
-            //     console.log("dt1HourEndUsrTz: " + dt1HourEndUsrTz );
-            //     console.log(dt1HourEndUsrTz );
-            //     console.log("---------" );
-            //     jQuery(this).find(".to-be-announced").append("To be announced");
-            //    
-            // }
 
-            // console.log("tommorow.ts: " + tommorow.ts );
-            // console.log(tommorow.ts);
-            // console.log("dt1HourEndUsrTz.ts: " + dt1HourEndUsrTz.ts );
-            // console.log(dt1HourEndUsrTz.ts);
-            // var myBool = (parseInt(tommorow.ts, 10)  <  parseInt(dt1HourEndUsrTz.ts, 10));
-            // console.log("tommorow.ts < dt1HourEndUsrTz.ts: " + myBool);
-            // console.log("---------" );
-
-            // if(tommorow.year > dt1HourEndUsrTz.year){
-            //     console.log("year is bigger")
-            // }else if(tommorow.month > dt1HourEndUsrTz.month){
-            //     console.log("month is bigger")
-            // }else if(tommorow.day > dt1HourEndUsrTz.day){
-            //     console.log("day is bigger")
-            // }else if(tommorow.hour > dt1HourEndUsrTz.hour){
-            //     console.log("hour is bigger")
-            // }else if(tommorow.second > dt1HourEndUsrTz.minute){
-            //     console.log("minute is bigger")
-            // }else{
-            //     console.log("none is bigger")
-            // }
-
-            //year comparison
-            if (tommorow.year > dt1HourEndUsrTz.year) {
+            if (tommorow > dt1HourEndUsrTz) {
                 // console.log("year is bigger");
                 jQuery(this).find(".to-be-announced").append("To be announced");
                 jQuery(this).find(".nowrp.date-of-start").text("---, --- -- ----");
                 jQuery(this).find(".cont-usr-strtdt").remove();
-            } else if (tommorow.year === dt1HourEndUsrTz.year) {
-                console.log("year is the same");
-                //month comparison
-                if (tommorow.month > dt1HourEndUsrTz.month) {
-                    // console.log("month is bigger");
-                    jQuery(this).find(".to-be-announced").append("To be announced");
-                    jQuery(this).find(".nowrp.date-of-start").text("---, --- -- ----");
-                    jQuery(this).find(".cont-usr-strtdt").remove();
-                } else if (tommorow.month === dt1HourEndUsrTz.month) {
-                    console.log("month is the same");
-                    //day comparison
-                    if (tommorow.day > dt1HourEndUsrTz.day) {
-                        // console.log("day is bigger");
-                        jQuery(this).find(".to-be-announced").append("To be announced");
-                        jQuery(this).find(".nowrp.date-of-start").text("---, --- -- ----");
-                        jQuery(this).find(".cont-usr-strtdt").remove();
-                    } else if (tommorow.day === dt1HourEndUsrTz.day) {
-                        console.log("year is the same");
-                        //hour comparison
-                        if (tommorow.hour > dt1HourEndUsrTz.hour) {
-                            // console.log("hour is bigger")
-                            jQuery(this).find(".to-be-announced").append("To be announced");
-                            jQuery(this).find(".nowrp.date-of-start").text("---, --- -- ----");
-                            jQuery(this).find(".cont-usr-strtdt").remove();
-                        } else if (tommorow.hour === dt1HourEndUsrTz.hour) {
-                            console.log("hour is the same")
-                                //minute comparison
-                            if (tommorow.minute > dt1HourEndUsrTz.minute) {
-                                // console.log("minute is bigger")
-                                jQuery(this).find(".to-be-announced").append("To be announced");
-                                jQuery(this).find(".nowrp.date-of-start").text("---, --- -- ----");
-                                jQuery(this).find(".cont-usr-strtdt").remove();
-                            } else if (tommorow.minute === dt1HourEndUsrTz.minute) {
-                                console.log("minute is the same")
-                            }
-                        }
-                    }
-                }
-            }
-
+            } 
 
         });
     });
@@ -932,15 +858,15 @@
 
     function changeToAmPm() {
         for (let i = 0; i < allNyStartHr.length; i++) {
-            jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz12h[i]);
-            jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzString12h[i]);
-            jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY12h[i]);
-            jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNY12h[i]);
+            jQuery(".usrt-row .start-hr").eq(i).text(arrayDt1HourStartUsrTz12h[i]);
+            jQuery(".usrt-row .end-hr").eq(i).text(arrayDt1HourEndUsrTzString12h[i]);
+            jQuery(".nyt-row .start-hr").eq(i).text(arrayDt1HourStartNY12h[i]);
+            jQuery(".nyt-row .end-hr").eq(i).text(arrayDtHourEndNY12h[i]);
 
-            jQuery(".usrt-row .am-pm-start-hr").eq(i).append(arraydt1HourStartUsrTzAmPm[i]);
-            jQuery(".usrt-row .am-pm-end-hr").eq(i).append(arraydt1HourEndUsrTzStringAmPm[i]);
-            jQuery(".nyt-row .am-pm-start-hr").eq(i).append(arraydt1HourStartNYAmPm[i]);
-            jQuery(".nyt-row .am-pm-end-hr").eq(i).append(arraydtHourEndNYAmPm[i]);
+            jQuery(".usrt-row .am-pm-start-hr").eq(i).append(arrayDt1HourStartUsrTzAmPm[i]);
+            jQuery(".usrt-row .am-pm-end-hr").eq(i).append(arrayDt1HourEndUsrTzStringAmPm[i]);
+            jQuery(".nyt-row .am-pm-start-hr").eq(i).append(arrayDt1HourStartNYAmPm[i]);
+            jQuery(".nyt-row .am-pm-end-hr").eq(i).append(arrayDtHourEndNYAmPm[i]);
         }
     }
 </script>
