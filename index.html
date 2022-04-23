@@ -512,7 +512,7 @@
     var myArray = []
 
     let arraydt1HourStartUsrTz24h = [];
-    let arraydt1HourEndUsrTzString24h = [];
+    let arraydt1HourEndUsrTz24h = [];
     let arraydt1HourStartNY24h = [];
     let arraydtHourEndNY24h = [];
 
@@ -698,10 +698,10 @@
 
 
 
-            let dt1HourEndUsrTzString24h = dt1HourEndUsrTz.toFormat('H:mm');
-            arraydt1HourEndUsrTzString24h.push(dt1HourEndUsrTzString24h)
-            let dt1HourEndUsrTzString12h = dt1HourEndUsrTz.toFormat('h:mm');
-            arrayDt1HourEndUsrTzString12h.push(dt1HourEndUsrTzString12h)
+            let dt1HourEndUsrTz24h = dt1HourEndUsrTz.toFormat('H:mm');
+            arraydt1HourEndUsrTz24h.push(dt1HourEndUsrTz24h)
+            let dt1HourEndUsrTz12h = dt1HourEndUsrTz.toFormat('h:mm');
+            arrayDt1HourEndUsrTzString12h.push(dt1HourEndUsrTz12h)
             let dt1HourEndUsrTzStringAmPm = dt1HourEndUsrTz.toFormat('a');
             arrayDt1HourEndUsrTzStringAmPm.push(dt1HourEndUsrTzStringAmPm)
 
@@ -756,7 +756,7 @@
 
             //replace course hours start and hour end for user time
             jQuery(this).find('.usrt-row .start-hr').text(dt1HourStartUsrTz12h);
-            jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTzString12h);
+            jQuery(this).find('.usrt-row .end-hr').text(dt1HourEndUsrTz12h);
 
             //replace course hours start and hour end for New York time
             jQuery(this).find('.nyt-row .start-hr').text(dt1HourStartNY12h);
@@ -850,7 +850,7 @@
         jQuery(".am-pm").text("");
         for (let i = 0; i < allNyStartHr.length; i++) {
             jQuery(".usrt-row .start-hr").eq(i).text(arraydt1HourStartUsrTz24h[i]);
-            jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTzString24h[i]);
+            jQuery(".usrt-row .end-hr").eq(i).text(arraydt1HourEndUsrTz24h[i]);
             jQuery(".nyt-row .start-hr").eq(i).text(arraydt1HourStartNY24h[i]);
             jQuery(".nyt-row .end-hr").eq(i).text(arraydtHourEndNY24h[i]);
         }
